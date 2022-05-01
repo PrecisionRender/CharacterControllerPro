@@ -1,0 +1,28 @@
+{
+	"Name": "CharacterControllerPro",
+	"Version": "1.0",
+	"Company": "My Company",
+	"Copyright": "",
+	"GameTarget": "GameTarget",
+	"EditorTarget": "GameEditorTarget",
+	"References": [
+		{
+			"Name": "$(EnginePath)/Flax.flaxproj"
+		}
+	],
+	"DefaultScene": "012c2d464ff009e962029d888ceb96fb",
+	"DefaultSceneSpawn": {
+		"Position": {
+			"X": -73.86584,
+			"Y": 223.621109,
+			"Z": -194.377884
+		},
+		"Direction": {
+			"X": -0.398828864,
+			"Y": -0.139948338,
+			"Z": 0.9062836
+		}
+	},
+	"MinEngineVersion": "0.0.6194",
+	"EngineNickname": null
+}
