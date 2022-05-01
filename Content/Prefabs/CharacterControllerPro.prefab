@@ -1,0 +1,140 @@
+{
+	"ID": "4f99cc9d4626ae8605055ca1cf582a75",
+	"TypeName": "FlaxEngine.Prefab",
+	"EngineBuild": 6228,
+	"Data": [
+	{
+		"ID": "8cde3fc346021e9780ae7ab7f06555f3",
+		"TypeName": "FlaxEngine.CharacterController",
+		"ParentID": "00000000000000000000000000000000",
+		"Name": "CharacterControllerPro",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": 170.0,
+				"Z": 0.0
+			}
+		},
+		"StaticFlags": 0,
+		"Layer": 1,
+		"Height": 100.0
+	},
+	{
+		"ID": "eabd5eb7430500e9582c209396db402e",
+		"TypeName": "Game.CharacterControllerPro",
+		"ParentID": "8cde3fc346021e9780ae7ab7f06555f3",
+		"V": {
+			"JumpForce": 900.0,
+			"GravityForce": 3500.0
+		}
+	},
+	{
+		"ID": "17fd452f48e3990c01d2cb833c7a6ae1",
+		"TypeName": "Game.PlayerInput",
+		"ParentID": "8cde3fc346021e9780ae7ab7f06555f3",
+		"V": {}
+	},
+	{
+		"ID": "7fae1fbe462486448076f8b8e5007f56",
+		"TypeName": "FlaxEngine.EmptyActor",
+		"ParentID": "8cde3fc346021e9780ae7ab7f06555f3",
+		"Name": "Visuals",
+		"StaticFlags": 0,
+		"Layer": 1
+	},
+	{
+		"ID": "65121ee24b9cbdaa03e9638af29b4953",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "7fae1fbe462486448076f8b8e5007f56",
+		"Name": "Capsule",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": -100.0,
+				"Z": 0.0
+			},
+			"Scale": {
+				"X": 2.0,
+				"Y": 2.0,
+				"Z": 2.0
+			}
+		},
+		"StaticFlags": 0,
+		"Layer": 1,
+		"Model": "3f82e57744f57c28285150b646ad2198",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "58d324b5473297c1aaa35fb08dcda048",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	},
+	{
+		"ID": "ef77414e40bcdfe40659ae8e6c59f093",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "7fae1fbe462486448076f8b8e5007f56",
+		"Name": "Cube",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": 60.0,
+				"Z": 50.0
+			},
+			"Scale": {
+				"X": 0.15000000596046449,
+				"Y": 0.15000000596046449,
+				"Z": 1.0
+			}
+		},
+		"StaticFlags": 0,
+		"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "00000000000000000000000000000000",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	},
+	{
+		"ID": "af4b668d44364ea0270efba2651deaa8",
+		"TypeName": "FlaxEngine.EmptyActor",
+		"ParentID": "8cde3fc346021e9780ae7ab7f06555f3",
+		"Name": "CameraArm",
+		"StaticFlags": 0,
+		"Layer": 1
+	},
+	{
+		"ID": "373815a048c97bda77c57b90665d9abb",
+		"TypeName": "Game.CameraArm",
+		"ParentID": "af4b668d44364ea0270efba2651deaa8",
+		"V": {
+			"ArmCollisionMask": {
+				"Mask": 1
+			}
+		}
+	},
+	{
+		"ID": "dbc0d8ad4deea3c379fa8aa05d290189",
+		"TypeName": "FlaxEngine.Camera",
+		"ParentID": "af4b668d44364ea0270efba2651deaa8",
+		"Name": "Camera",
+		"Transform": {
+			"Translation": {
+				"X": 0.0,
+				"Y": 90.0,
+				"Z": -300.0
+			}
+		},
+		"StaticFlags": 0,
+		"Layer": 1
+	}
+]
+}

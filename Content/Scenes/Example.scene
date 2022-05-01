@@ -8,9 +8,9 @@
 			"TypeName": "FlaxEngine.Scene",
 			"Lightmaps": [
 				{
-					"Lightmap0": "8108a5764e10a7a0b1a424b0ad74499f",
-					"Lightmap1": "8f9c2a604325a0a8ed2c6687a1af7adc",
-					"Lightmap2": "d13caf394666c789dc3c7db45b7cd986"
+					"Lightmap0": "00000000000000000000000000000000",
+					"Lightmap1": "00000000000000000000000000000000",
+					"Lightmap2": "00000000000000000000000000000000"
 				}
 			],
 			"LightmapSettings": {
@@ -529,6 +529,36 @@
 				"Entries": [
 					{
 						"Material": "58d324b5473297c1aaa35fb08dcda048",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "fba986d54cfe716d844d28877630e3a3",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "5c6063b9490e4c46b2c37791bf1a9dc3",
+			"Name": "Cube",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 60.0,
+					"Z": 50.0
+				},
+				"Scale": {
+					"X": 0.15000000596046449,
+					"Y": 0.15000000596046449,
+					"Z": 1.0
+				}
+			},
+			"StaticFlags": 0,
+			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "00000000000000000000000000000000",
 						"ShadowsMode": 3,
 						"Visible": true,
 						"ReceiveDecals": true
