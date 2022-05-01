@@ -467,137 +467,79 @@
 			"CollisionData": "03c832344c26a4eaddd047a22bd42563"
 		},
 		{
-			"ID": "935ceac249df5ced2330129b0b393421",
-			"TypeName": "FlaxEngine.CharacterController",
+			"ID": "d64ff7414fc2b9815572f08ff4ff3367",
+			"PrefabID": "4f99cc9d4626ae8605055ca1cf582a75",
+			"PrefabObjectID": "8cde3fc346021e9780ae7ab7f06555f3",
 			"ParentID": "012c2d464ff009e962029d888ceb96fb",
-			"Name": "CharacterControllerPro",
 			"Transform": {
 				"Translation": {
 					"X": 0.0,
-					"Y": 170.0,
+					"Y": 200.0,
 					"Z": 0.0
 				}
 			},
-			"StaticFlags": 0,
-			"Layer": 1,
-			"Height": 100.0
+			"StaticFlags": 15
 		},
 		{
-			"ID": "5166248e4b1ce8b1525633a2e14d81d7",
-			"TypeName": "Game.CharacterControllerPro",
-			"ParentID": "935ceac249df5ced2330129b0b393421",
-			"V": {
-	"JumpForce": 900.0,
-	"GravityForce": 3500.0
-}
-		},
-		{
-			"ID": "ac8355954d353ae843a0bd8376a4b389",
-			"TypeName": "Game.PlayerInput",
-			"ParentID": "935ceac249df5ced2330129b0b393421",
+			"ID": "cecdb59844ae37083b2e5aba6e0025d9",
+			"PrefabID": "4f99cc9d4626ae8605055ca1cf582a75",
+			"PrefabObjectID": "eabd5eb7430500e9582c209396db402e",
+			"ParentID": "d64ff7414fc2b9815572f08ff4ff3367",
 			"V": {}
 		},
 		{
-			"ID": "5c6063b9490e4c46b2c37791bf1a9dc3",
-			"TypeName": "FlaxEngine.EmptyActor",
-			"ParentID": "935ceac249df5ced2330129b0b393421",
-			"Name": "Visuals",
-			"StaticFlags": 0,
-			"Layer": 1
+			"ID": "c7b9cf4249f85255ff498da1fd68a971",
+			"PrefabID": "4f99cc9d4626ae8605055ca1cf582a75",
+			"PrefabObjectID": "17fd452f48e3990c01d2cb833c7a6ae1",
+			"ParentID": "d64ff7414fc2b9815572f08ff4ff3367",
+			"V": {}
 		},
 		{
-			"ID": "66f80a064f6ff9472720e49595c9be6b",
-			"TypeName": "FlaxEngine.StaticModel",
-			"ParentID": "5c6063b9490e4c46b2c37791bf1a9dc3",
-			"Name": "Capsule",
-			"Transform": {
-				"Translation": {
-					"X": 0.0,
-					"Y": -100.0,
-					"Z": 0.0
-				},
-				"Scale": {
-					"X": 2.0,
-					"Y": 2.0,
-					"Z": 2.0
-				}
-			},
-			"StaticFlags": 0,
-			"Layer": 1,
-			"Model": "3f82e57744f57c28285150b646ad2198",
+			"ID": "4c7d04404987a8248eb1ed8f30173ab3",
+			"PrefabID": "4f99cc9d4626ae8605055ca1cf582a75",
+			"PrefabObjectID": "7fae1fbe462486448076f8b8e5007f56",
+			"ParentID": "d64ff7414fc2b9815572f08ff4ff3367"
+		},
+		{
+			"ID": "7556714f43a25c4041b492b033d9a2a0",
+			"PrefabID": "4f99cc9d4626ae8605055ca1cf582a75",
+			"PrefabObjectID": "65121ee24b9cbdaa03e9638af29b4953",
+			"ParentID": "4c7d04404987a8248eb1ed8f30173ab3",
 			"Buffer": {
 				"Entries": [
-					{
-						"Material": "58d324b5473297c1aaa35fb08dcda048",
-						"ShadowsMode": 3,
-						"Visible": true,
-						"ReceiveDecals": true
-					}
+					{}
 				]
 			}
 		},
 		{
-			"ID": "fba986d54cfe716d844d28877630e3a3",
-			"TypeName": "FlaxEngine.StaticModel",
-			"ParentID": "5c6063b9490e4c46b2c37791bf1a9dc3",
-			"Name": "Cube",
-			"Transform": {
-				"Translation": {
-					"X": 0.0,
-					"Y": 60.0,
-					"Z": 50.0
-				},
-				"Scale": {
-					"X": 0.15000000596046449,
-					"Y": 0.15000000596046449,
-					"Z": 1.0
-				}
-			},
-			"StaticFlags": 0,
-			"Model": "b43f0f8f4aaba3f3156896a5a22ba493",
+			"ID": "42aa344442943a2f7a28c1a14547542f",
+			"PrefabID": "4f99cc9d4626ae8605055ca1cf582a75",
+			"PrefabObjectID": "ef77414e40bcdfe40659ae8e6c59f093",
+			"ParentID": "4c7d04404987a8248eb1ed8f30173ab3",
 			"Buffer": {
 				"Entries": [
-					{
-						"Material": "00000000000000000000000000000000",
-						"ShadowsMode": 3,
-						"Visible": true,
-						"ReceiveDecals": true
-					}
+					{}
 				]
 			}
 		},
 		{
-			"ID": "4c087b4f4de3e8ffa120a3980f9efb21",
-			"TypeName": "FlaxEngine.EmptyActor",
-			"ParentID": "935ceac249df5ced2330129b0b393421",
-			"Name": "CameraArm",
-			"StaticFlags": 0,
-			"Layer": 1
+			"ID": "94fb292b477240cbcc2f0b8719a795f2",
+			"PrefabID": "4f99cc9d4626ae8605055ca1cf582a75",
+			"PrefabObjectID": "af4b668d44364ea0270efba2651deaa8",
+			"ParentID": "d64ff7414fc2b9815572f08ff4ff3367"
 		},
 		{
-			"ID": "01d2a1404d2d50f2f3d6dcbfabe23215",
-			"TypeName": "Game.CameraArm",
-			"ParentID": "4c087b4f4de3e8ffa120a3980f9efb21",
-			"V": {
-	"ArmCollisionMask": {
-		"Mask": 1
-	}
-}
+			"ID": "c964c39542fbb6e3561832bdf6b1043a",
+			"PrefabID": "4f99cc9d4626ae8605055ca1cf582a75",
+			"PrefabObjectID": "373815a048c97bda77c57b90665d9abb",
+			"ParentID": "94fb292b477240cbcc2f0b8719a795f2",
+			"V": {}
 		},
 		{
-			"ID": "2d8c80fe4ab4442c9b7e27ae321d22a2",
-			"TypeName": "FlaxEngine.Camera",
-			"ParentID": "4c087b4f4de3e8ffa120a3980f9efb21",
-			"Name": "Camera",
-			"Transform": {
-				"Translation": {
-					"X": 0.0,
-					"Y": 90.0,
-					"Z": -300.0
-				}
-			},
-			"StaticFlags": 0,
-			"Layer": 1
+			"ID": "39ad0fc24318121c2ecbd78f39c08645",
+			"PrefabID": "4f99cc9d4626ae8605055ca1cf582a75",
+			"PrefabObjectID": "dbc0d8ad4deea3c379fa8aa05d290189",
+			"ParentID": "94fb292b477240cbcc2f0b8719a795f2"
 		}
 	]
 }
