@@ -43,9 +43,9 @@ namespace Game
 
         [ExpandGroups]
         [Serialize, ShowInEditor, EditorOrder(9), EditorDisplay("Jumping")]
-        public float JumpForce = 700;
+        public float JumpForce = 900;
         [Serialize, ShowInEditor, EditorOrder(10), EditorDisplay("Jumping")]
-        public float GravityForce = 2000;
+        public float GravityForce = 3500;
         [Serialize, ShowInEditor, EditorOrder(11), EditorDisplay("Jumping")]
         public float AirControl = 0.2f;
         [Serialize, ShowInEditor, EditorOrder(12), EditorDisplay("Jumping")]
