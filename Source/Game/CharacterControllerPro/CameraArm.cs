@@ -71,7 +71,7 @@ namespace Game
                 camera.Position = Actor.Position + Transform.Backward * ArmLength;
             }
 
-            camera.Position += CameraOffset;
+            camera.LocalPosition += CameraOffset;
         }
     }
 }
