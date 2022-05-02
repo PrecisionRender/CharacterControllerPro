@@ -70,6 +70,8 @@ namespace Game
                 // Set camera position to desired arm length
                 camera.Position = Actor.Position + Transform.Backward * ArmLength;
             }
+
+            camera.Position += CameraOffset;
         }
     }
 }
