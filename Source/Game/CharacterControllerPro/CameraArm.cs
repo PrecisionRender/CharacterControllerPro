@@ -13,11 +13,13 @@ namespace Game
         public float ArmLength = 600;
         [EditorOrder(1)]
         public bool ShouldUseCollision = true;
-        [EditorOrder(2)]
+        [EditorOrder(2), VisibleIf("ShouldUseCollision")]
         public LayersMask ArmCollisionMask;
-        [EditorOrder(3)]
-        public Vector3 CameraOffset = Vector3.Zero;
+        [EditorOrder(3), VisibleIf("ShouldUseCollision")]
+        public float CollisionOffset = 12f;
         [EditorOrder(4)]
+        public Vector3 CameraOffset = Vector3.Zero;
+        [EditorOrder(5)]
         public float CameraSmoothSpeed = 30;
 
         [Serialize, ShowInEditor, EditorOrder(5), EditorDisplay(name: "Pitch Limit")]
@@ -67,8 +69,8 @@ namespace Game
             }
             else
             {
-                // Set camera position to desired arm length
-                camera.Position = Actor.Position + Transform.Backward * ArmLength;
+                // Set camera position to desired arm length, and offset it slightly to keep from clipping into walls
+                camera.Position = Actor.Position + Transform.Backward * (ArmLength + -CollisionOffset);
             }
 
             camera.LocalPosition += CameraOffset;
