@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using FlaxEngine;
 
@@ -51,6 +51,8 @@ namespace Game
         [Serialize, ShowInEditor, EditorOrder(12), EditorDisplay("Jumping")]
         public float MaxJumpHoldTime = 0.2f;
 
+        [HideInEditor]
+        public bool IsOnGround = false;
 
         private Vector3 inputDirection = Vector3.Zero;
         private Vector3 movementDirection = Vector3.Forward;
@@ -74,7 +76,7 @@ namespace Game
         {
             // Normalize input
             if (inputDirection.Length > 1)
-			{
+            {
                 inputDirection = inputDirection.Normalized;
             }
 
@@ -86,7 +88,7 @@ namespace Game
             characterController.Move(Velocity * Time.DeltaTime);
 
             // If we are on the ground, apply small downward force to keep us grounded
-            if (characterController.IsGrounded)
+            if (IsOnGround)
             {
                 Velocity.Y = -200;
             }
@@ -118,7 +120,7 @@ namespace Game
 
         public void Jump()
         {
-            if (characterController.IsGrounded)
+            if (IsOnGround)
             {
                 isJumping = true;
             }
@@ -179,7 +181,7 @@ namespace Game
             float realFriction = Friction;
 
             // Reduce control in the air
-            if (!characterController.IsGrounded)
+            if (!IsOnGround)
             {
                 realAccel *= AirControl;
                 realFriction *= AirControl;
@@ -214,6 +216,9 @@ namespace Game
             {
                 StopJumping();
             }
+
+            // Check if we are on the ground
+            IsOnGround = characterController.IsGrounded;
         }
 
         private void HandleRotation()
