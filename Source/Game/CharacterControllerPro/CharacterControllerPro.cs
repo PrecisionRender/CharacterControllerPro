@@ -100,6 +100,8 @@ namespace Game
 
         public void AddMovementInput(Vector3 direction, float scale)
         {
+            direction = direction.Normalized;
+            scale = Mathf.Clamp(scale, -1, 1);
             inputDirection += direction * scale;
         }
 
