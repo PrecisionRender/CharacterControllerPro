@@ -87,10 +87,12 @@ namespace Game
             // Move character
             characterController.Move(Velocity * Time.DeltaTime);
 
-            // If we are on the ground, apply small downward force to keep us grounded
             if (IsOnGround)
             {
-                Velocity.Y = -200;
+                // If we are on the ground, apply small downward force to keep us grounded
+                characterController.Move(characterController.UpDirection * 200 * Time.DeltaTime);
+                // And reset gravity
+                Velocity.Y = 0;
             }
 
             // Reset input
