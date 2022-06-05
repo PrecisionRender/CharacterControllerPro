@@ -244,6 +244,10 @@ namespace Game
                 movementDirection = inputDirection.Normalized;
             }
 
+            if (MovementMode == MovementModes.Stopped)
+            {
+                return;
+            }
             // Rotate visuals (e.g. charcater mesh) to rotate towards input direction
             visuals.Orientation = Quaternion.Lerp(visuals.Orientation, Quaternion.LookRotation(movementDirection), VisualsRotationSpeed * Time.DeltaTime);
         }
