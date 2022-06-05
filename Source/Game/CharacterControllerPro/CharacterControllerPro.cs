@@ -21,28 +21,30 @@ namespace Game
         [Serialize, ShowInEditor, EditorOrder(0), EditorDisplay("Movement")]
         public float Acceleration = 25;
         [Serialize, ShowInEditor, EditorOrder(1), EditorDisplay("Movement")]
-        public float Friction = 40;
+        public float Deceleration = 40;
         [Serialize, ShowInEditor, EditorOrder(2), EditorDisplay("Movement")]
-        public float VisualsRotationSpeed = 10;
+        public float Friction = 1;
         [Serialize, ShowInEditor, EditorOrder(3), EditorDisplay("Movement")]
+        public float VisualsRotationSpeed = 10;
+        [Serialize, ShowInEditor, EditorOrder(4), EditorDisplay("Movement")]
         public MovementModes MovementMode = MovementModes.Walking;
 
         [ExpandGroups]
-        [Serialize, ShowInEditor, EditorOrder(4), EditorDisplay("Walking")]
-        public float MaxSpeedWalk = 600;
         [Serialize, ShowInEditor, EditorOrder(5), EditorDisplay("Walking")]
-        public float MaxSpeedRun = 1000;
+        public float MaxSpeedWalk = 600;
         [Serialize, ShowInEditor, EditorOrder(6), EditorDisplay("Walking")]
+        public float MaxSpeedRun = 1000;
+        [Serialize, ShowInEditor, EditorOrder(7), EditorDisplay("Walking")]
         public float MaxSpeedCrouch = 300;
 
         [ExpandGroups]
-        [Serialize, ShowInEditor, EditorOrder(7), EditorDisplay("Jumping")]
-        public float JumpForce = 900;
         [Serialize, ShowInEditor, EditorOrder(8), EditorDisplay("Jumping")]
-        public float GravityForce = 3500;
+        public float JumpForce = 900;
         [Serialize, ShowInEditor, EditorOrder(9), EditorDisplay("Jumping")]
-        public float AirControl = 0.2f;
+        public float GravityForce = 3500;
         [Serialize, ShowInEditor, EditorOrder(10), EditorDisplay("Jumping")]
+        public float AirControl = 0.2f;
+        [Serialize, ShowInEditor, EditorOrder(11), EditorDisplay("Jumping")]
         public float MaxJumpHoldTime = 0.2f;
 
 
@@ -116,7 +118,7 @@ namespace Game
 
         public void Jump()
         {
-            if (isOnGround)
+            if (isOnGround && MovementMode != MovementModes.Stopped)
             {
                 isJumping = true;
             }
@@ -134,7 +136,7 @@ namespace Game
         }
 
         public bool GetIsOnGround()
-		{
+	{
             return isOnGround;
         }
 
@@ -151,11 +153,11 @@ namespace Game
         public void LaunchCharacter(Vector3 newVelocity, bool isAdditive)
         {
             if (isAdditive)
-			{
+	    {
                 motionVelocity += newVelocity;
             }
-			else
-			{
+	    else
+	    {
                 motionVelocity = newVelocity;
             }
         }
@@ -186,13 +188,19 @@ namespace Game
 
 
             float realAccel = Acceleration;
-            float realFriction = Friction;
+            float realDeceleration = Deceleration;
 
-            // Reduce control in the air
+            
             if (!isOnGround)
             {
+	        // Reduce control in the air
                 realAccel *= AirControl;
-                realFriction *= AirControl;
+                realDeceleration *= AirControl;
+            }
+	    else
+	    {
+                realAccel *= Friction;
+                realDeceleration *= Friction;
             }
 
 
@@ -205,7 +213,7 @@ namespace Game
             }
             else
             {
-                motionVelocity = Vector3.SmoothStep(motionVelocity, movementVector, realFriction * Time.DeltaTime);
+                motionVelocity = Vector3.SmoothStep(motionVelocity, movementVector, realDeceleration * Time.DeltaTime);
             }
         }
 
