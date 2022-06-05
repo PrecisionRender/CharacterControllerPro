@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using FlaxEngine;
 
@@ -18,45 +18,70 @@ namespace Game
         }
 
         [ExpandGroups]
-        [Serialize, ShowInEditor, EditorOrder(0), EditorDisplay("Movement")]
+        [EditorOrder(0), EditorDisplay("Movement")]
         public float Acceleration = 25;
-        [Serialize, ShowInEditor, EditorOrder(1), EditorDisplay("Movement")]
+        [EditorOrder(1), EditorDisplay("Movement")]
         public float Deceleration = 40;
-        [Serialize, ShowInEditor, EditorOrder(2), EditorDisplay("Movement")]
+        [EditorOrder(2), EditorDisplay("Movement")]
         public float Friction = 1;
-        [Serialize, ShowInEditor, EditorOrder(3), EditorDisplay("Movement")]
+        [EditorOrder(3), EditorDisplay("Movement")]
         public float VisualsRotationSpeed = 10;
-        [Serialize, ShowInEditor, EditorOrder(4), EditorDisplay("Movement")]
+        [EditorOrder(4), EditorDisplay("Movement")]
         public MovementModes MovementMode = MovementModes.Walking;
 
         [ExpandGroups]
-        [Serialize, ShowInEditor, EditorOrder(5), EditorDisplay("Walking")]
+        [EditorOrder(5), EditorDisplay("Walking")]
         public float MaxSpeedWalk = 600;
-        [Serialize, ShowInEditor, EditorOrder(6), EditorDisplay("Walking")]
+        [EditorOrder(6), EditorDisplay("Walking")]
         public float MaxSpeedRun = 1000;
-        [Serialize, ShowInEditor, EditorOrder(7), EditorDisplay("Walking")]
+        [EditorOrder(7), EditorDisplay("Walking")]
         public float MaxSpeedCrouch = 300;
 
         [ExpandGroups]
-        [Serialize, ShowInEditor, EditorOrder(8), EditorDisplay("Jumping")]
+        [EditorOrder(8), EditorDisplay("Jumping")]
         public float JumpForce = 900;
-        [Serialize, ShowInEditor, EditorOrder(9), EditorDisplay("Jumping")]
+        [EditorOrder(9), EditorDisplay("Jumping")]
         public float GravityForce = 3500;
-        [Serialize, ShowInEditor, EditorOrder(10), EditorDisplay("Jumping")]
+        [EditorOrder(10), EditorDisplay("Jumping")]
         public float AirControl = 0.2f;
-        [Serialize, ShowInEditor, EditorOrder(11), EditorDisplay("Jumping")]
+        [EditorOrder(11), EditorDisplay("Jumping")]
         public float MaxJumpHoldTime = 0.2f;
 
 
-        private Vector3 motionVelocity = Vector3.Zero;
-        private Vector3 characterRotation = Vector3.Zero;
+        [HideInEditor]
+        public Vector3 Velocity
+        {
+            get { return _velocity; }
+        }
+
+        [HideInEditor]
+        public Vector3 CharacterRotation
+        {
+            get { return _characterRotation; }
+        }
+
+        [HideInEditor]
+        public bool IsJumping
+        {
+            get { return _isJumping; }
+        }
+
+        [HideInEditor]
+        public bool IsOnGround
+        {
+            get { return _isOnGround; }
+        }
+
+
+        private Vector3 _velocity = Vector3.Zero;
+        private Vector3 _characterRotation = Vector3.Zero;
 
         private Vector3 inputDirection = Vector3.Zero;
         private Vector3 movementDirection = Vector3.Forward;
 
-        private bool isJumping = false;
+        private bool _isJumping = false;
+        private bool _isOnGround = false;
         private float jumpHoldTime = 0;
-        private bool isOnGround = false;
 
         private CharacterController characterController;
         private Actor visuals;
@@ -83,12 +108,12 @@ namespace Game
             HandleRotation();
 
             // Move character
-            characterController.Move(motionVelocity * Time.DeltaTime);
+            characterController.Move(_velocity * Time.DeltaTime);
 
             // If we are on the ground, apply small downward force to keep us grounded
-            if (isOnGround)
+            if (_isOnGround)
             {
-                motionVelocity.Y = -200;
+                _velocity.Y = -200;
             }
 
             // Reset input
@@ -101,64 +126,39 @@ namespace Game
             inputDirection += direction * scale;
         }
 
-        public Vector3 GetCharacterVelocity()
-        {
-            return characterController.Velocity;
-        }
-
         public void AddCharacterRotation(Vector3 rotation)
         {
-            characterRotation += rotation;
-        }
-
-        public Vector3 GetCharacterRotation()
-        {
-            return characterRotation;
+            _characterRotation += rotation;
         }
 
         public void Jump()
         {
-            if (isOnGround && MovementMode != MovementModes.Stopped)
+            if (_isOnGround && MovementMode != MovementModes.Stopped)
             {
-                isJumping = true;
+                _isJumping = true;
             }
         }
 
         public void StopJumping()
         {
-            isJumping = false;
+            _isJumping = false;
             jumpHoldTime = 0;
-        }
-
-        public bool GetIsJumping()
-        {
-            return isJumping;
-        }
-
-        public bool GetIsOnGround()
-	{
-            return isOnGround;
         }
 
         public void StopMovementImmediately()
         {
-            motionVelocity = Vector3.Zero;
-        }
-
-        public void SetMovementMode(MovementModes mode)
-        {
-            MovementMode = mode;
+            _velocity = Vector3.Zero;
         }
 
         public void LaunchCharacter(Vector3 newVelocity, bool isAdditive)
         {
             if (isAdditive)
-	    {
-                motionVelocity += newVelocity;
+            {
+                _velocity += newVelocity;
             }
-	    else
-	    {
-                motionVelocity = newVelocity;
+            else
+            {
+                _velocity = newVelocity;
             }
         }
 
@@ -190,42 +190,42 @@ namespace Game
             float realAccel = Acceleration;
             float realDeceleration = Deceleration;
 
-            
-            if (!isOnGround)
+
+            if (!_isOnGround)
             {
-	        // Reduce control in the air
+                // Reduce control in the air
                 realAccel *= AirControl;
                 realDeceleration *= AirControl;
             }
-	    else
-	    {
+            else
+            {
                 realAccel *= Friction;
                 realDeceleration *= Friction;
             }
 
 
-            movementVector.Y = motionVelocity.Y;
+            movementVector.Y = _velocity.Y;
 
             // Interpolate to the desired speed
-            if (movementVector.Length > motionVelocity.Length)
+            if (movementVector.Length > _velocity.Length)
             {
-                motionVelocity = Vector3.SmoothStep(motionVelocity, movementVector, realAccel * Time.DeltaTime);
+                _velocity = Vector3.SmoothStep(_velocity, movementVector, realAccel * Time.DeltaTime);
             }
             else
             {
-                motionVelocity = Vector3.SmoothStep(motionVelocity, movementVector, realDeceleration * Time.DeltaTime);
+                _velocity = Vector3.SmoothStep(_velocity, movementVector, realDeceleration * Time.DeltaTime);
             }
         }
 
         private void HandleVerticalMovement()
         {
             // Apply gravity
-            motionVelocity.Y -= GravityForce * Time.DeltaTime;
+            _velocity.Y -= GravityForce * Time.DeltaTime;
 
             // Handle Jumping
-            if (isJumping)
+            if (_isJumping)
             {
-                motionVelocity.Y = JumpForce;
+                _velocity.Y = JumpForce;
                 jumpHoldTime += Time.DeltaTime;
             }
             if (jumpHoldTime >= MaxJumpHoldTime)
@@ -234,7 +234,7 @@ namespace Game
             }
 
             // Check if we are on the ground
-            isOnGround = characterController.IsGrounded;
+            _isOnGround = characterController.IsGrounded;
         }
 
         private void HandleRotation()

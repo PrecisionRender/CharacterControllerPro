@@ -25,8 +25,8 @@ namespace Game
             Screen.CursorLock = CursorLockMode.Locked;
 
             // Get forward and right direction based on the charcater's CharcaterRotation
-            Vector3 forwardDirection = Vector3.Transform(Vector3.Forward, Quaternion.Euler(controller.GetCharacterRotation()));
-            Vector3 rightDirection = Vector3.Transform(Vector3.Right, Quaternion.Euler(controller.GetCharacterRotation()));
+            Vector3 forwardDirection = Vector3.Transform(Vector3.Forward, Quaternion.Euler(controller.CharacterRotation));
+            Vector3 rightDirection = Vector3.Transform(Vector3.Right, Quaternion.Euler(controller.CharacterRotation));
 
             // Add movement in those direcitons
             controller.AddMovementInput(forwardDirection, Input.GetAxis("Vertical"));
@@ -45,11 +45,11 @@ namespace Game
             // Trigger running
             if (Input.GetAction("Run"))
             {
-                controller.SetMovementMode(CharacterControllerPro.MovementModes.Running);
+                controller.MovementMode = CharacterControllerPro.MovementModes.Running;
             }
             if (Input.GetAction("Stop Run"))
             {
-                controller.SetMovementMode(CharacterControllerPro.MovementModes.Walking);
+                controller.MovementMode = CharacterControllerPro.MovementModes.Walking;
             }
         }
     }

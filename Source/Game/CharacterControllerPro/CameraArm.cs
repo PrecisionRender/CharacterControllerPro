@@ -22,7 +22,7 @@ namespace Game
         [EditorOrder(5)]
         public float CameraSmoothSpeed = 30;
 
-        [Serialize, ShowInEditor, EditorOrder(6), EditorDisplay(name: "Pitch Limit")]
+        [Serialize, ShowInEditor, EditorOrder(5), EditorDisplay(name: "Pitch Limit")]
         private Vector2 pitchLimit = new Vector2(-89, 89);
 
         private Camera camera;
@@ -54,7 +54,7 @@ namespace Game
 
             // Interpolate camera arm towards the desired rotation
             currentPitch = Mathf.SmoothStep(currentPitch, targetPitch, CameraSmoothSpeed * Time.DeltaTime);
-            currentYaw = Mathf.SmoothStep(currentYaw, playerController.GetCharacterRotation().Y, CameraSmoothSpeed * Time.DeltaTime);
+            currentYaw = Mathf.SmoothStep(currentYaw, playerController.CharacterRotation.Y, CameraSmoothSpeed * Time.DeltaTime);
 
             Actor.EulerAngles = new Vector3(currentPitch, currentYaw, 0);
         }

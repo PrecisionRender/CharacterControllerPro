@@ -1,0 +1,191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{2865A7A5-C2BB-4769-A402-2FE22FE0EB17}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Game</RootNamespace>
+    <AssemblyName>Game.CSharp</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <LangVersion>7.3</LangVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Binaries\GameEditorTarget\Windows\x64\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>..\Cache/Intermediate\GameEditorTarget\Windows\x64\Debug\CSharp\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>..\Cache/Intermediate\GameEditorTarget\Windows\x64\Debug\CSharp\</IntermediateOutputPath>
+    <DefineConstants>BUILD_DEBUG;PLATFORM_WINDOWS;FLAX_EDITOR;FLAX;FLAX_ASSERTIONS;FLAX_1;FLAX_1_3</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>1591</NoWarn>
+    <DocumentationFile>..\Binaries\GameEditorTarget\Windows\x64\Debug\Game.CSharp.xml</DocumentationFile>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Editor.Windows.Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Binaries\GameEditorTarget\Windows\x64\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>..\Cache/Intermediate\GameEditorTarget\Windows\x64\Debug\CSharp\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>..\Cache/Intermediate\GameEditorTarget\Windows\x64\Debug\CSharp\</IntermediateOutputPath>
+    <DefineConstants>BUILD_DEBUG;PLATFORM_WINDOWS;FLAX_EDITOR;FLAX;FLAX_ASSERTIONS;FLAX_1;FLAX_1_3</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>1591</NoWarn>
+    <DocumentationFile>..\Binaries\GameEditorTarget\Windows\x64\Debug\Game.CSharp.xml</DocumentationFile>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Editor.Windows.Development|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Binaries\GameEditorTarget\Windows\x64\Development\</OutputPath>
+    <BaseIntermediateOutputPath>..\Cache/Intermediate\GameEditorTarget\Windows\x64\Development\CSharp\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>..\Cache/Intermediate\GameEditorTarget\Windows\x64\Development\CSharp\</IntermediateOutputPath>
+    <DefineConstants>BUILD_DEVELOPMENT;PLATFORM_WINDOWS;FLAX_EDITOR;FLAX;FLAX_ASSERTIONS;FLAX_1;FLAX_1_3</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>1591</NoWarn>
+    <DocumentationFile>..\Binaries\GameEditorTarget\Windows\x64\Development\Game.CSharp.xml</DocumentationFile>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Editor.Windows.Release|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Binaries\GameEditorTarget\Windows\x64\Release\</OutputPath>
+    <BaseIntermediateOutputPath>..\Cache/Intermediate\GameEditorTarget\Windows\x64\Release\CSharp\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>..\Cache/Intermediate\GameEditorTarget\Windows\x64\Release\CSharp\</IntermediateOutputPath>
+    <DefineConstants>BUILD_RELEASE;PLATFORM_WINDOWS;FLAX_EDITOR;FLAX;FLAX_ASSERTIONS;FLAX_1;FLAX_1_3</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>1591</NoWarn>
+    <DocumentationFile>..\Binaries\GameEditorTarget\Windows\x64\Release\Game.CSharp.xml</DocumentationFile>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Game.Windows.Debug|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Binaries\GameTarget\Windows\x64\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>..\Cache/Intermediate\GameTarget\Windows\x64\Debug\CSharp\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>..\Cache/Intermediate\GameTarget\Windows\x64\Debug\CSharp\</IntermediateOutputPath>
+    <DefineConstants>BUILD_DEBUG;PLATFORM_WINDOWS;FLAX_GAME;FLAX;FLAX_ASSERTIONS;FLAX_1;FLAX_1_3</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>1591</NoWarn>
+    <DocumentationFile>..\Binaries\GameTarget\Windows\x64\Debug\Game.CSharp.xml</DocumentationFile>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Game.Windows.Debug|Win32' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\Binaries\GameTarget\Windows\x86\Debug\</OutputPath>
+    <BaseIntermediateOutputPath>..\Cache/Intermediate\GameTarget\Windows\x86\Debug\CSharp\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>..\Cache/Intermediate\GameTarget\Windows\x86\Debug\CSharp\</IntermediateOutputPath>
+    <DefineConstants>BUILD_DEBUG;PLATFORM_WINDOWS;FLAX_GAME;FLAX;FLAX_ASSERTIONS;FLAX_1;FLAX_1_3</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>1591</NoWarn>
+    <DocumentationFile>..\Binaries\GameTarget\Windows\x86\Debug\Game.CSharp.xml</DocumentationFile>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Game.Windows.Development|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Binaries\GameTarget\Windows\x64\Development\</OutputPath>
+    <BaseIntermediateOutputPath>..\Cache/Intermediate\GameTarget\Windows\x64\Development\CSharp\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>..\Cache/Intermediate\GameTarget\Windows\x64\Development\CSharp\</IntermediateOutputPath>
+    <DefineConstants>BUILD_DEVELOPMENT;PLATFORM_WINDOWS;FLAX_GAME;FLAX;FLAX_ASSERTIONS;FLAX_1;FLAX_1_3</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>1591</NoWarn>
+    <DocumentationFile>..\Binaries\GameTarget\Windows\x64\Development\Game.CSharp.xml</DocumentationFile>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Game.Windows.Development|Win32' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Binaries\GameTarget\Windows\x86\Development\</OutputPath>
+    <BaseIntermediateOutputPath>..\Cache/Intermediate\GameTarget\Windows\x86\Development\CSharp\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>..\Cache/Intermediate\GameTarget\Windows\x86\Development\CSharp\</IntermediateOutputPath>
+    <DefineConstants>BUILD_DEVELOPMENT;PLATFORM_WINDOWS;FLAX_GAME;FLAX;FLAX_ASSERTIONS;FLAX_1;FLAX_1_3</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>1591</NoWarn>
+    <DocumentationFile>..\Binaries\GameTarget\Windows\x86\Development\Game.CSharp.xml</DocumentationFile>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Game.Windows.Release|x64' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Binaries\GameTarget\Windows\x64\Release\</OutputPath>
+    <BaseIntermediateOutputPath>..\Cache/Intermediate\GameTarget\Windows\x64\Release\CSharp\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>..\Cache/Intermediate\GameTarget\Windows\x64\Release\CSharp\</IntermediateOutputPath>
+    <DefineConstants>BUILD_RELEASE;PLATFORM_WINDOWS;FLAX_GAME;FLAX;FLAX_ASSERTIONS;FLAX_1;FLAX_1_3</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>1591</NoWarn>
+    <DocumentationFile>..\Binaries\GameTarget\Windows\x64\Release\Game.CSharp.xml</DocumentationFile>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Game.Windows.Release|Win32' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>portable</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Binaries\GameTarget\Windows\x86\Release\</OutputPath>
+    <BaseIntermediateOutputPath>..\Cache/Intermediate\GameTarget\Windows\x86\Release\CSharp\</BaseIntermediateOutputPath>
+    <IntermediateOutputPath>..\Cache/Intermediate\GameTarget\Windows\x86\Release\CSharp\</IntermediateOutputPath>
+    <DefineConstants>BUILD_RELEASE;PLATFORM_WINDOWS;FLAX_GAME;FLAX;FLAX_ASSERTIONS;FLAX_1;FLAX_1_3</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <NoWarn>1591</NoWarn>
+    <DocumentationFile>..\Binaries\GameTarget\Windows\x86\Release\Game.CSharp.xml</DocumentationFile>
+    <UseVSHostingProcess>true</UseVSHostingProcess>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="FlaxEngine.CSharp">
+      <HintPath>..\..\..\..\Programs\Flax\Flax_1.3\Binaries/Editor/Win64/Development/FlaxEngine.CSharp.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Game.Gen.cs" />
+    <Compile Include="Game\CharacterControllerPro\CameraArm.cs" />
+    <Compile Include="Game\CharacterControllerPro\CharacterControllerPro.cs" />
+    <Compile Include="Game\CharacterControllerPro\PlayerInput.cs" />
+    <Compile Visible="false" Include="D:\Game Engine Projects\FlaxEngine\CharacterControllerPro\Cache/Intermediate\GameEditorTarget\Windows\x64\Debug\Game\Game.Bindings.Gen.cs" />
+    <Compile Visible="false" Include="D:\Game Engine Projects\FlaxEngine\CharacterControllerPro\Cache/Intermediate\GameEditorTarget\Windows\x64\Development\Game\Game.Bindings.Gen.cs" />
+    <Compile Visible="false" Include="D:\Game Engine Projects\FlaxEngine\CharacterControllerPro\Cache/Intermediate\GameEditorTarget\Windows\x64\Release\Game\Game.Bindings.Gen.cs" />
+    <Compile Visible="false" Include="D:\Game Engine Projects\FlaxEngine\CharacterControllerPro\Cache/Intermediate\GameTarget\Windows\x64\Debug\Game\Game.Bindings.Gen.cs" />
+    <Compile Visible="false" Include="D:\Game Engine Projects\FlaxEngine\CharacterControllerPro\Cache/Intermediate\GameTarget\Windows\Win32\Debug\Game\Game.Bindings.Gen.cs" />
+    <Compile Visible="false" Include="D:\Game Engine Projects\FlaxEngine\CharacterControllerPro\Cache/Intermediate\GameTarget\Windows\x64\Development\Game\Game.Bindings.Gen.cs" />
+    <Compile Visible="false" Include="D:\Game Engine Projects\FlaxEngine\CharacterControllerPro\Cache/Intermediate\GameTarget\Windows\Win32\Development\Game\Game.Bindings.Gen.cs" />
+    <Compile Visible="false" Include="D:\Game Engine Projects\FlaxEngine\CharacterControllerPro\Cache/Intermediate\GameTarget\Windows\x64\Release\Game\Game.Bindings.Gen.cs" />
+    <Compile Visible="false" Include="D:\Game Engine Projects\FlaxEngine\CharacterControllerPro\Cache/Intermediate\GameTarget\Windows\Win32\Release\Game\Game.Bindings.Gen.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
