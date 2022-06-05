@@ -17,48 +17,44 @@ namespace Game
             Crouching
         }
 
-        [Serialize, ShowInEditor, EditorOrder(0), ReadOnly]
-        private Vector3 Velocity;
-
-        [Serialize, ShowInEditor, EditorOrder(1), ReadOnly]
-        private Vector3 CharacterRotation = Vector3.Zero;
-
         [ExpandGroups]
-        [Serialize, ShowInEditor, EditorOrder(2), EditorDisplay("Movement")]
+        [Serialize, ShowInEditor, EditorOrder(0), EditorDisplay("Movement")]
         public float Acceleration = 25;
-        [Serialize, ShowInEditor, EditorOrder(3), EditorDisplay("Movement")]
+        [Serialize, ShowInEditor, EditorOrder(1), EditorDisplay("Movement")]
         public float Friction = 40;
-        [Serialize, ShowInEditor, EditorOrder(4), EditorDisplay("Movement")]
+        [Serialize, ShowInEditor, EditorOrder(2), EditorDisplay("Movement")]
         public float VisualsRotationSpeed = 10;
-        [Serialize, ShowInEditor, EditorOrder(5), EditorDisplay("Movement")]
+        [Serialize, ShowInEditor, EditorOrder(3), EditorDisplay("Movement")]
         public MovementModes MovementMode = MovementModes.Walking;
 
         [ExpandGroups]
-        [Serialize, ShowInEditor, EditorOrder(6), EditorDisplay("Walking")]
+        [Serialize, ShowInEditor, EditorOrder(4), EditorDisplay("Walking")]
         public float MaxSpeedWalk = 600;
-        [Serialize, ShowInEditor, EditorOrder(7), EditorDisplay("Walking")]
+        [Serialize, ShowInEditor, EditorOrder(5), EditorDisplay("Walking")]
         public float MaxSpeedRun = 1000;
-        [Serialize, ShowInEditor, EditorOrder(8), EditorDisplay("Walking")]
+        [Serialize, ShowInEditor, EditorOrder(6), EditorDisplay("Walking")]
         public float MaxSpeedCrouch = 300;
 
         [ExpandGroups]
-        [Serialize, ShowInEditor, EditorOrder(9), EditorDisplay("Jumping")]
+        [Serialize, ShowInEditor, EditorOrder(7), EditorDisplay("Jumping")]
         public float JumpForce = 900;
-        [Serialize, ShowInEditor, EditorOrder(10), EditorDisplay("Jumping")]
+        [Serialize, ShowInEditor, EditorOrder(8), EditorDisplay("Jumping")]
         public float GravityForce = 3500;
-        [Serialize, ShowInEditor, EditorOrder(11), EditorDisplay("Jumping")]
+        [Serialize, ShowInEditor, EditorOrder(9), EditorDisplay("Jumping")]
         public float AirControl = 0.2f;
-        [Serialize, ShowInEditor, EditorOrder(12), EditorDisplay("Jumping")]
+        [Serialize, ShowInEditor, EditorOrder(10), EditorDisplay("Jumping")]
         public float MaxJumpHoldTime = 0.2f;
 
-        [HideInEditor]
-        public bool IsOnGround = false;
+
+        private Vector3 motionVelocity = Vector3.Zero;
+        private Vector3 characterRotation = Vector3.Zero;
 
         private Vector3 inputDirection = Vector3.Zero;
         private Vector3 movementDirection = Vector3.Forward;
 
         private bool isJumping = false;
         private float jumpHoldTime = 0;
+        private bool isOnGround = false;
 
         private CharacterController characterController;
         private Actor visuals;
@@ -85,14 +81,12 @@ namespace Game
             HandleRotation();
 
             // Move character
-            characterController.Move(Velocity * Time.DeltaTime);
+            characterController.Move(motionVelocity * Time.DeltaTime);
 
-            if (IsOnGround)
+            // If we are on the ground, apply small downward force to keep us grounded
+            if (isOnGround)
             {
-                // If we are on the ground, apply small downward force to keep us grounded
-                characterController.Move(characterController.UpDirection * 200 * Time.DeltaTime);
-                // And reset gravity
-                Velocity.Y = 0;
+                motionVelocity.Y = -200;
             }
 
             // Reset input
@@ -107,22 +101,22 @@ namespace Game
 
         public Vector3 GetCharacterVelocity()
         {
-            return Velocity;
+            return characterController.Velocity;
         }
 
         public void AddCharacterRotation(Vector3 rotation)
         {
-            CharacterRotation += rotation;
+            characterRotation += rotation;
         }
 
         public Vector3 GetCharacterRotation()
         {
-            return CharacterRotation;
+            return characterRotation;
         }
 
         public void Jump()
         {
-            if (IsOnGround)
+            if (isOnGround)
             {
                 isJumping = true;
             }
@@ -139,9 +133,14 @@ namespace Game
             return isJumping;
         }
 
+        public bool GetIsOnGround()
+		{
+            return isOnGround;
+        }
+
         public void StopMovementImmediately()
         {
-            Velocity = Vector3.Zero;
+            motionVelocity = Vector3.Zero;
         }
 
         public void SetMovementMode(MovementModes mode)
@@ -149,9 +148,16 @@ namespace Game
             MovementMode = mode;
         }
 
-        public void LaunchCharacter(Vector3 newVelocity)
+        public void LaunchCharacter(Vector3 newVelocity, bool isAdditive)
         {
-            Velocity = newVelocity;
+            if (isAdditive)
+			{
+                motionVelocity += newVelocity;
+            }
+			else
+			{
+                motionVelocity = newVelocity;
+            }
         }
 
 
@@ -183,35 +189,35 @@ namespace Game
             float realFriction = Friction;
 
             // Reduce control in the air
-            if (!IsOnGround)
+            if (!isOnGround)
             {
                 realAccel *= AirControl;
                 realFriction *= AirControl;
             }
 
 
-            movementVector.Y = Velocity.Y;
+            movementVector.Y = motionVelocity.Y;
 
             // Interpolate to the desired speed
-            if (movementVector.Length > Velocity.Length)
+            if (movementVector.Length > motionVelocity.Length)
             {
-                Velocity = Vector3.SmoothStep(Velocity, movementVector, realAccel * Time.DeltaTime);
+                motionVelocity = Vector3.SmoothStep(motionVelocity, movementVector, realAccel * Time.DeltaTime);
             }
             else
             {
-                Velocity = Vector3.SmoothStep(Velocity, movementVector, realFriction * Time.DeltaTime);
+                motionVelocity = Vector3.SmoothStep(motionVelocity, movementVector, realFriction * Time.DeltaTime);
             }
         }
 
         private void HandleVerticalMovement()
         {
             // Apply gravity
-            Velocity.Y -= GravityForce * Time.DeltaTime;
+            motionVelocity.Y -= GravityForce * Time.DeltaTime;
 
             // Handle Jumping
             if (isJumping)
             {
-                Velocity.Y = JumpForce;
+                motionVelocity.Y = JumpForce;
                 jumpHoldTime += Time.DeltaTime;
             }
             if (jumpHoldTime >= MaxJumpHoldTime)
@@ -220,7 +226,7 @@ namespace Game
             }
 
             // Check if we are on the ground
-            IsOnGround = characterController.IsGrounded;
+            isOnGround = characterController.IsGrounded;
         }
 
         private void HandleRotation()
