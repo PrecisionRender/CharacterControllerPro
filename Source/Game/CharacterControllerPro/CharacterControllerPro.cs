@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using FlaxEngine;
 
@@ -51,7 +51,7 @@ namespace Game
         [HideInEditor]
         public Vector3 Velocity
         {
-            get { return _velocity; }
+            get { return characterController.Velocity; }
         }
 
         [HideInEditor]
