@@ -458,7 +458,8 @@
 			"TypeName": "FlaxEngine.MeshCollider",
 			"ParentID": "012c2d464ff009e962029d888ceb96fb",
 			"Name": "CSG.Collider",
-			"HideFlags": 4
+			"HideFlags": 4,
+			"CollisionData": "03c832344c26a4eaddd047a22bd42563"
 		},
 		{
 			"ID": "6e7f565e4fdbb6157f2230bdc6a92197",
