@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using FlaxEngine;
 
@@ -49,12 +49,6 @@ namespace Game
 
 
         [HideInEditor]
-        public Vector3 Velocity
-        {
-            get { return characterController.Velocity; }
-        }
-
-        [HideInEditor]
         public Vector3 CharacterRotation
         {
             get { return _characterRotation; }
@@ -66,21 +60,14 @@ namespace Game
             get { return _isJumping; }
         }
 
-        [HideInEditor]
-        public bool IsOnGround
-        {
-            get { return _isOnGround; }
-        }
 
-
-        private Vector3 _velocity = Vector3.Zero;
+        private Vector3 _appliedVelocity = Vector3.Zero;
         private Vector3 _characterRotation = Vector3.Zero;
 
         private Vector3 inputDirection = Vector3.Zero;
         private Vector3 movementDirection = Vector3.Forward;
 
         private bool _isJumping = false;
-        private bool _isOnGround = false;
         private float jumpHoldTime = 0;
 
         private CharacterController characterController;
@@ -108,12 +95,12 @@ namespace Game
             HandleRotation();
 
             // Move character
-            characterController.Move(_velocity * Time.DeltaTime);
+            characterController.Move(_appliedVelocity * Time.DeltaTime);
 
             // If we are on the ground, apply small downward force to keep us grounded
-            if (_isOnGround)
+            if (characterController.IsGrounded)
             {
-                _velocity.Y = -200;
+                _appliedVelocity.Y = -200;
             }
 
             // Reset input
@@ -133,7 +120,7 @@ namespace Game
 
         public void Jump()
         {
-            if (_isOnGround && MovementMode != MovementModes.Stopped)
+            if (characterController.IsGrounded && MovementMode != MovementModes.Stopped)
             {
                 _isJumping = true;
             }
@@ -147,18 +134,23 @@ namespace Game
 
         public void StopMovementImmediately()
         {
-            _velocity = Vector3.Zero;
+            _appliedVelocity = Vector3.Zero;
         }
 
-        public void LaunchCharacter(Vector3 newVelocity, bool isAdditive)
+        public CharacterController GetCharacterController()
+		{
+            return characterController;
+		}
+
+        public void LaunchCharacter(Vector3 newVelocity, bool isAdditive = false)
         {
             if (isAdditive)
             {
-                _velocity += newVelocity;
+                _appliedVelocity += newVelocity;
             }
             else
             {
-                _velocity = newVelocity;
+                _appliedVelocity = newVelocity;
             }
         }
 
@@ -191,63 +183,61 @@ namespace Game
             float realDeceleration = Deceleration;
 
 
-            if (!_isOnGround)
+            if (characterController.IsGrounded)
+            {
+                realAccel *= Friction;
+                realDeceleration *= Friction;
+            }
+            else
             {
                 // Reduce control in the air
                 realAccel *= AirControl;
                 realDeceleration *= AirControl;
             }
-            else
-            {
-                realAccel *= Friction;
-                realDeceleration *= Friction;
-            }
 
 
-            movementVector.Y = _velocity.Y;
+            movementVector.Y = _appliedVelocity.Y;
 
             // Interpolate to the desired speed
-            if (movementVector.Length > _velocity.Length)
+            if (movementVector.Length > _appliedVelocity.Length)
             {
-                _velocity = Vector3.SmoothStep(_velocity, movementVector, realAccel * Time.DeltaTime);
+                _appliedVelocity = Vector3.SmoothStep(_appliedVelocity, movementVector, realAccel * Time.DeltaTime);
             }
             else
             {
-                _velocity = Vector3.SmoothStep(_velocity, movementVector, realDeceleration * Time.DeltaTime);
+                _appliedVelocity = Vector3.SmoothStep(_appliedVelocity, movementVector, realDeceleration * Time.DeltaTime);
             }
         }
 
         private void HandleVerticalMovement()
         {
             // Apply gravity
-            _velocity.Y -= GravityForce * Time.DeltaTime;
+            _appliedVelocity.Y -= GravityForce * Time.DeltaTime;
 
             // Handle Jumping
             if (_isJumping)
             {
-                _velocity.Y = JumpForce;
+                _appliedVelocity.Y = JumpForce;
                 jumpHoldTime += Time.DeltaTime;
             }
             if (jumpHoldTime >= MaxJumpHoldTime)
             {
                 StopJumping();
             }
-
-            // Check if we are on the ground
-            _isOnGround = characterController.IsGrounded;
         }
 
         private void HandleRotation()
         {
+            if (MovementMode == MovementModes.Stopped)
+            {
+                return;
+            }
+
             if (inputDirection.Length > 0)
             {
                 movementDirection = inputDirection.Normalized;
             }
 
-            if (MovementMode == MovementModes.Stopped)
-            {
-                return;
-            }
             // Rotate visuals (e.g. charcater mesh) to rotate towards input direction
             visuals.Orientation = Quaternion.Lerp(visuals.Orientation, Quaternion.LookRotation(movementDirection), VisualsRotationSpeed * Time.DeltaTime);
         }

@@ -10,17 +10,17 @@
 			"Name": "$(EnginePath)/Flax.flaxproj"
 		}
 	],
-	"DefaultScene": "012c2d464ff009e962029d888ceb96fb",
+	"DefaultScene": "440c1abf45b1911023e0f69fc0a5e385",
 	"DefaultSceneSpawn": {
 		"Position": {
-			"X": -73.86584,
-			"Y": 223.621109,
-			"Z": -194.377884
+			"X": -381.081055,
+			"Y": 286.152832,
+			"Z": 218.735809
 		},
 		"Direction": {
-			"X": -0.398828864,
-			"Y": -0.139948338,
-			"Z": 0.9062836
+			"X": 0.673193455,
+			"Y": -0.06727311,
+			"Z": -0.7364
 		}
 	},
 	"MinEngineVersion": "0.0.6194",

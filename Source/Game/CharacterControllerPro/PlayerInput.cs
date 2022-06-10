@@ -28,7 +28,7 @@ namespace Game
             Vector3 forwardDirection = Vector3.Transform(Vector3.Forward, Quaternion.Euler(controller.CharacterRotation));
             Vector3 rightDirection = Vector3.Transform(Vector3.Right, Quaternion.Euler(controller.CharacterRotation));
 
-            // Add movement in those direcitons
+            // Add movement in those directions
             controller.AddMovementInput(forwardDirection, Input.GetAxis("Vertical"));
             controller.AddMovementInput(rightDirection, Input.GetAxis("Horizontal"));
 
