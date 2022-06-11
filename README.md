@@ -24,7 +24,7 @@ Most of the movement and camera settings can be tweaked straight from the Proper
 The CharacetrControllerPro Demo project includes a first-person and third-person character, which can be used to demonstrate how to use CharacterControllerPro in different player perspectives.
 
 ### Documentation and API Reference
-CharacterControllerPro includes PDF documentation on how CharacterControllerPro works and how to use it. It also includes a complete API reference for learning aboout what all the variables and functions are for.
+The project includes PDF documentation on how CharacterControllerPro works and how to use it. It also includes a complete API reference for learning aboout what all the variables and functions are for.
 
 ## How to install
 1. Download the repository ZIP file
