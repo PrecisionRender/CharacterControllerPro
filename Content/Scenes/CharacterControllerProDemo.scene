@@ -91,7 +91,6 @@
 			"ID": "febfa70149af037bc8ff61b84875fa04",
 			"TypeName": "FlaxEngine.CharacterController",
 			"ParentID": "440c1abf45b1911023e0f69fc0a5e385",
-			"IsActive": false,
 			"Name": "FirstPersonCharacter",
 			"Transform": {
 				"Translation": {
@@ -158,6 +157,7 @@
 			"ID": "f7b45dc94e07d190cdfbe1b6d8077abe",
 			"TypeName": "FlaxEngine.CharacterController",
 			"ParentID": "440c1abf45b1911023e0f69fc0a5e385",
+			"IsActive": false,
 			"Name": "ThirdPersonCharacter",
 			"Transform": {
 				"Translation": {
@@ -230,9 +230,7 @@
 			"ID": "1b4a37cb4a432c50be8b7da5eb46c3ff",
 			"TypeName": "Game.AnimationController",
 			"ParentID": "30a69721457d6bf4302db9828220de2e",
-			"V": {
-	"characterControllerPro": "5bb9954348ebc3c679686ab6cc190335"
-}
+			"V": {}
 		},
 		{
 			"ID": "570c56fb49294ac11c4f778f9f0031f9",
