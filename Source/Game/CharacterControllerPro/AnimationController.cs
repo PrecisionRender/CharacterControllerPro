@@ -10,23 +10,23 @@ namespace Game
     public class AnimationController : Script
     {
         [Serialize, ShowInEditor, EditorDisplay(name: "Character Controller Pro")]
-        private CharacterControllerPro characterControllerPro;
+        private CharacterControllerPro _characterControllerPro;
 
-        private AnimGraphParameter velocity;
-        private AnimGraphParameter falling;
+        private AnimGraphParameter _velocity;
+        private AnimGraphParameter _falling;
 
         public override void OnStart()
         {
             // Cache parameters
-            velocity = Actor.As<AnimatedModel>().GetParameter("Velocity");
-            falling = Actor.As<AnimatedModel>().GetParameter("Falling");
+            _velocity = Actor.As<AnimatedModel>().GetParameter("Velocity");
+            _falling = Actor.As<AnimatedModel>().GetParameter("Falling");
         }
 
         public override void OnUpdate()
         {
             // Update the values
-            velocity.Value = characterControllerPro.GetCharacterController().Velocity;
-            falling.Value = !characterControllerPro.GetCharacterController().IsGrounded;
+            _velocity.Value = _characterControllerPro.GetCharacterController().Velocity;
+            _falling.Value = !_characterControllerPro.GetCharacterController().IsGrounded;
         }
     }
 }

@@ -91,6 +91,7 @@
 			"ID": "febfa70149af037bc8ff61b84875fa04",
 			"TypeName": "FlaxEngine.CharacterController",
 			"ParentID": "440c1abf45b1911023e0f69fc0a5e385",
+			"IsActive": false,
 			"Name": "FirstPersonCharacter",
 			"Transform": {
 				"Translation": {
@@ -157,7 +158,6 @@
 			"ID": "f7b45dc94e07d190cdfbe1b6d8077abe",
 			"TypeName": "FlaxEngine.CharacterController",
 			"ParentID": "440c1abf45b1911023e0f69fc0a5e385",
-			"IsActive": false,
 			"Name": "ThirdPersonCharacter",
 			"Transform": {
 				"Translation": {

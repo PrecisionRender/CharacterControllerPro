@@ -64,53 +64,54 @@ namespace Game
         private Vector3 _appliedVelocity = Vector3.Zero;
         private Vector3 _characterRotation = Vector3.Zero;
 
-        private Vector3 inputDirection = Vector3.Zero;
-        private Vector3 movementDirection = Vector3.Forward;
+        private Vector3 _inputDirection = Vector3.Zero;
+        private Vector3 _visualsDirection = Vector3.Forward;
 
         private bool _isJumping = false;
-        private float jumpHoldTime = 0;
+        private float _jumpHoldTime = 0;
 
-        private CharacterController characterController;
-        private Actor visuals;
+        private CharacterController _characterController;
+        private Actor _visuals;
 
 
         /// <inheritdoc/>
         public override void OnStart()
         {
-            characterController = Actor.As<CharacterController>();
-            visuals = Actor.GetChild("Visuals");
+            _characterController = Actor.As<CharacterController>();
+            _visuals = Actor.GetChild("Visuals");
         }
 
         /// <inheritdoc/>
         public override void OnFixedUpdate()
         {
             // Normalize input
-            if (inputDirection.Length > 1)
+            if (_inputDirection.Length > 1)
             {
-                inputDirection = inputDirection.Normalized;
+                _inputDirection = _inputDirection.Normalized;
             }
 
+            // Handle movement and rotation logic
             HandleLateralMovement();
             HandleVerticalMovement();
             HandleRotation();
 
             // Move character
-            characterController.Move(_appliedVelocity * Time.DeltaTime);
+            _characterController.Move(_appliedVelocity * Time.DeltaTime);
 
             // If we are on the ground, apply small downward force to keep us grounded
-            if (characterController.IsGrounded)
+            if (_characterController.IsGrounded)
             {
                 _appliedVelocity.Y = -200;
             }
 
             // Reset input
-            inputDirection = Vector3.Zero;
+            _inputDirection = Vector3.Zero;
         }
 
 
         public void AddMovementInput(Vector3 direction, float scale)
         {
-            inputDirection += direction * scale;
+            _inputDirection += direction * scale;
         }
 
         public void AddCharacterRotation(Vector3 rotation)
@@ -120,7 +121,7 @@ namespace Game
 
         public void Jump()
         {
-            if (characterController.IsGrounded && MovementMode != MovementModes.Stopped)
+            if (_characterController.IsGrounded && MovementMode != MovementModes.Stopped)
             {
                 _isJumping = true;
             }
@@ -129,7 +130,7 @@ namespace Game
         public void StopJumping()
         {
             _isJumping = false;
-            jumpHoldTime = 0;
+            _jumpHoldTime = 0;
         }
 
         public void StopMovementImmediately()
@@ -138,9 +139,9 @@ namespace Game
         }
 
         public CharacterController GetCharacterController()
-		{
-            return characterController;
-		}
+        {
+            return _characterController;
+        }
 
         public void LaunchCharacter(Vector3 newVelocity, bool isAdditive = false)
         {
@@ -159,20 +160,20 @@ namespace Game
         {
             Vector3 movementVector = Vector3.Zero;
 
-            // Decide what speed to use
+            // Decide what speed to use based on the character's MovementMode
             switch (MovementMode)
             {
                 case MovementModes.Stopped:
                     movementVector = Vector3.Zero;
                     break;
                 case MovementModes.Walking:
-                    movementVector = inputDirection * MaxSpeedWalk;
+                    movementVector = _inputDirection * MaxSpeedWalk;
                     break;
                 case MovementModes.Running:
-                    movementVector = inputDirection * MaxSpeedRun;
+                    movementVector = _inputDirection * MaxSpeedRun;
                     break;
                 case MovementModes.Crouching:
-                    movementVector = inputDirection * MaxSpeedCrouch;
+                    movementVector = _inputDirection * MaxSpeedCrouch;
                     break;
                 default:
                     break;
@@ -183,8 +184,9 @@ namespace Game
             float realDeceleration = Deceleration;
 
 
-            if (characterController.IsGrounded)
+            if (_characterController.IsGrounded)
             {
+                // Apply friction on the ground
                 realAccel *= Friction;
                 realDeceleration *= Friction;
             }
@@ -195,16 +197,18 @@ namespace Game
                 realDeceleration *= AirControl;
             }
 
-
+            // Don't reset the character's gravity
             movementVector.Y = _appliedVelocity.Y;
 
             // Interpolate to the desired speed
             if (movementVector.Length > _appliedVelocity.Length)
             {
+                // If our desired speed is higher than our current speed, use acceleration
                 _appliedVelocity = Vector3.SmoothStep(_appliedVelocity, movementVector, realAccel * Time.DeltaTime);
             }
             else
             {
+                // If our desired speed is lower than our current speed, use deceleration
                 _appliedVelocity = Vector3.SmoothStep(_appliedVelocity, movementVector, realDeceleration * Time.DeltaTime);
             }
         }
@@ -217,10 +221,13 @@ namespace Game
             // Handle Jumping
             if (_isJumping)
             {
+                // Apply jump force to vertical velocity
                 _appliedVelocity.Y = JumpForce;
-                jumpHoldTime += Time.DeltaTime;
+                // Increase jumpHoldTime
+                _jumpHoldTime += Time.DeltaTime;
             }
-            if (jumpHoldTime >= MaxJumpHoldTime)
+            // If jumpHoldTime is greater than MaxJumpHoldTime, stop the jump
+            if (_jumpHoldTime >= MaxJumpHoldTime)
             {
                 StopJumping();
             }
@@ -228,18 +235,20 @@ namespace Game
 
         private void HandleRotation()
         {
+            // Don't rotate character visuals if we are stopped
             if (MovementMode == MovementModes.Stopped)
             {
                 return;
             }
 
-            if (inputDirection.Length > 0)
+            // If we're giving input, change the visuals target rotation direction to the input direction
+            if (_inputDirection.Length > 0)
             {
-                movementDirection = inputDirection.Normalized;
+                _visualsDirection = _inputDirection.Normalized;
             }
 
             // Rotate visuals (e.g. charcater mesh) to rotate towards input direction
-            visuals.Orientation = Quaternion.Lerp(visuals.Orientation, Quaternion.LookRotation(movementDirection), VisualsRotationSpeed * Time.DeltaTime);
+            _visuals.Orientation = Quaternion.Lerp(_visuals.Orientation, Quaternion.LookRotation(_visualsDirection), VisualsRotationSpeed * Time.DeltaTime);
         }
     }
 }

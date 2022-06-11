@@ -9,12 +9,12 @@ namespace Game
     /// </summary>
     public class PlayerInput : Script
     {
-        private CharacterControllerPro controller;
+        private CharacterControllerPro _playerController;
 
         /// <inheritdoc/>
         public override void OnStart()
         {
-            controller = Actor.GetScript<CharacterControllerPro>();
+            _playerController = Actor.GetScript<CharacterControllerPro>();
         }
 
         /// <inheritdoc/>
@@ -25,31 +25,31 @@ namespace Game
             Screen.CursorLock = CursorLockMode.Locked;
 
             // Get forward and right direction based on the charcater's CharcaterRotation
-            Vector3 forwardDirection = Vector3.Transform(Vector3.Forward, Quaternion.Euler(controller.CharacterRotation));
-            Vector3 rightDirection = Vector3.Transform(Vector3.Right, Quaternion.Euler(controller.CharacterRotation));
+            Vector3 forwardDirection = Vector3.Transform(Vector3.Forward, Quaternion.Euler(_playerController.CharacterRotation));
+            Vector3 rightDirection = Vector3.Transform(Vector3.Right, Quaternion.Euler(_playerController.CharacterRotation));
 
             // Add movement in those directions
-            controller.AddMovementInput(forwardDirection, Input.GetAxis("Vertical"));
-            controller.AddMovementInput(rightDirection, Input.GetAxis("Horizontal"));
+            _playerController.AddMovementInput(forwardDirection, Input.GetAxis("Vertical"));
+            _playerController.AddMovementInput(rightDirection, Input.GetAxis("Horizontal"));
 
             // Trigger jumping
             if (Input.GetAction("Jump"))
             {
-                controller.Jump();
+                _playerController.Jump();
             }
             if (Input.GetAction("Stop Jump"))
             {
-                controller.StopJumping();
+                _playerController.StopJumping();
             }
 
             // Trigger running
             if (Input.GetAction("Run"))
             {
-                controller.MovementMode = CharacterControllerPro.MovementModes.Running;
+                _playerController.MovementMode = CharacterControllerPro.MovementModes.Running;
             }
             if (Input.GetAction("Stop Run"))
             {
-                controller.MovementMode = CharacterControllerPro.MovementModes.Walking;
+                _playerController.MovementMode = CharacterControllerPro.MovementModes.Walking;
             }
         }
     }
