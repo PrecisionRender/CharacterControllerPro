@@ -64,6 +64,30 @@
 			"CustomTexture": "c54410104ff39427bc11e5bc761d66b0"
 		},
 		{
+			"ID": "0eeb127745055eb440d6989c1cb8af55",
+			"TypeName": "FlaxEngine.PostFxVolume",
+			"ParentID": "440c1abf45b1911023e0f69fc0a5e385",
+			"Name": "PostFxVolume",
+			"IsBounded": false,
+			"Settings": {
+				"AO": {},
+				"Bloom": {},
+				"ToneMapping": {},
+				"ColorGrading": {},
+				"EyeAdaptation": {},
+				"CameraArtifacts": {},
+				"LensFlares": {},
+				"DepthOfField": {},
+				"MotionBlur": {
+					"OverrideFlags": 1,
+					"Enabled": false
+				},
+				"SSR": {},
+				"AA": {},
+				"PostFxMaterials": {}
+			}
+		},
+		{
 			"ID": "febfa70149af037bc8ff61b84875fa04",
 			"TypeName": "FlaxEngine.CharacterController",
 			"ParentID": "440c1abf45b1911023e0f69fc0a5e385",
