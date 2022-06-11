@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using FlaxEngine;
 
@@ -9,7 +9,6 @@ namespace Game
     /// </summary>
     public class AnimationController : Script
     {
-        [Serialize, ShowInEditor, EditorDisplay(name: "Character Controller Pro")]
         private CharacterControllerPro _characterControllerPro;
 
         private AnimGraphParameter _velocity;
@@ -17,6 +16,8 @@ namespace Game
 
         public override void OnStart()
         {
+            _characterControllerPro = Actor.Parent.Parent.GetScript<CharacterControllerPro>();
+
             // Cache parameters
             _velocity = Actor.As<AnimatedModel>().GetParameter("Velocity");
             _falling = Actor.As<AnimatedModel>().GetParameter("Falling");
