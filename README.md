@@ -22,8 +22,8 @@ CharacterControllerPro includes a complete camera controller in the from of a ca
 ### Complete Properties Window Customization
 Most of the movement and camera settings can be tweaked straight from the Properties window, allowing for rapid prototyping and minimal code editing!
 
-### First-Person and Third-Person Demo
-The CharacetrControllerPro Demo project includes a first-person and third-person character, which can be used to demonstrate how to use CharacterControllerPro in different player perspectives.
+### Full Demo Project
+CharacterControllerPro includes a demo project, with third-person, first-person, top-down, and side-scroller examples. It also shows how to implement an animated model with animations and foot IK using CharacterContorllerPro
 
 ### Documentation and API Reference
 The project includes PDF documentation on how CharacterControllerPro works and how to use it. It also includes a complete API reference for learning aboout what all the variables and functions are for.
@@ -32,6 +32,5 @@ The project includes PDF documentation on how CharacterControllerPro works and h
 1. Download the repository ZIP file
 2. Extract the ZIP file
 3. Open the project folder
-4. Exctract the CharacterControllerProCS ZIP file for the C# code or the CharacterControllerProCPP ZIP file for the C++ code
-5. Open the extracted folder
-6. Drag-and-drop the scripts into your project's Source folder
+4. Open the CharacterControllerProCS folder for the C# code or the CharacterControllerProCPP folder for the C++ code
+5. Drag and drop the scripts into your Flax Engine project
