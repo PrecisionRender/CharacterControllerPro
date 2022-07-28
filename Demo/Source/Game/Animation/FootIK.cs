@@ -42,7 +42,7 @@ namespace Game
                 // Create a rotation from the direction
                 Quaternion footRot = Quaternion.LookRotation(aimDirection, leftFootHit.Normal);
 
-                currentLeftIK = Mathf.Lerp(currentLeftIK, leftFootHit.Point.Y - Actor.Position.Y, Time.DeltaTime);
+                currentLeftIK = Mathf.Lerp(currentLeftIK, leftFootHit.Point.Y - Actor.Position.Y, Time.DeltaTime * 10);
 
                 _leftFootRot.Value = Quaternion.Euler(footRot.EulerAngles.X, 0, footRot.EulerAngles.Z);
                 _leftFootIK.Value = currentLeftIK;
