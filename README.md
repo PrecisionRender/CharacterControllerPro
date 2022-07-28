@@ -3,7 +3,9 @@ A fully featured modular character controller for Flax Engine, implemented in bo
 
 
 
-https://user-images.githubusercontent.com/89754713/173166438-3f41b1be-8697-4f53-8e6e-60bfd93537d7.mp4
+
+https://user-images.githubusercontent.com/89754713/181567216-a6ee960e-2311-4b95-b383-961ceaa4331e.mp4
+
 
 
 
