@@ -1,0 +1,899 @@
+{
+	"ID": "3d00f1f34198e5b356a93daad148a3e6",
+	"TypeName": "FlaxEngine.SceneAsset",
+	"EngineBuild": 6228,
+	"Data": [
+		{
+			"ID": "3d00f1f34198e5b356a93daad148a3e6",
+			"TypeName": "FlaxEngine.Scene",
+			"Lightmaps": [
+				{
+					"Lightmap0": "2cb5aa1240198b7424c14baa2ccd7247",
+					"Lightmap1": "7564b38641c25bb04abaa79010e9450b",
+					"Lightmap2": "547202fd4ce1e3d63d61b79c1a9e85ad"
+				}
+			],
+			"LightmapSettings": {
+				"IndirectLightingIntensity": 1.0,
+				"GlobalObjectsScale": 1.0,
+				"ChartsPadding": 3,
+				"AtlasSize": 1024,
+				"BounceCount": 1,
+				"CompressLightmaps": true,
+				"UseGeometryWithNoMaterials": true,
+				"Quality": 10
+			},
+			"CSG": {
+				"Model": "357532b346aeb1dd02c5688c530bd636",
+				"Data": "230e18114f459a0d7c0738b8df77bccf",
+				"CollisionData": "6da717c44718a14faf8eadb816cec64d"
+			}
+		},
+		{
+			"ID": "89987b7846b8c537c09dd4810c405ca3",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "3d00f1f34198e5b356a93daad148a3e6",
+			"Name": "Visuals"
+		},
+		{
+			"ID": "b6b8bc3d40847ef3e492bdb5b9e84248",
+			"TypeName": "FlaxEngine.DirectionalLight",
+			"ParentID": "89987b7846b8c537c09dd4810c405ca3",
+			"Name": "Sun",
+			"Transform": {
+				"Translation": {
+					"X": 40.0,
+					"Y": 160.0,
+					"Z": 0.0
+				},
+				"Orientation": {
+					"X": 0.9238795042037964,
+					"Y": -2.3656429704033145e-8,
+					"Z": -2.3656429704033145e-8,
+					"W": 0.3826834559440613
+				}
+			},
+			"ShadowsDistance": 3000.0,
+			"ShadowsDepthBias": 0.00570000009611249
+		},
+		{
+			"ID": "3f0ffdef4c1d8d2645475bb43a845d04",
+			"TypeName": "FlaxEngine.Sky",
+			"ParentID": "89987b7846b8c537c09dd4810c405ca3",
+			"Name": "Sky",
+			"Transform": {
+				"Translation": {
+					"X": 40.0,
+					"Y": 150.0,
+					"Z": 0.0
+				}
+			},
+			"Sun": "b6b8bc3d40847ef3e492bdb5b9e84248"
+		},
+		{
+			"ID": "476c02e1402977f716fa5ca075993681",
+			"TypeName": "FlaxEngine.SkyLight",
+			"ParentID": "89987b7846b8c537c09dd4810c405ca3",
+			"Name": "SkyLight",
+			"Brightness": 2.5,
+			"CustomTexture": "c54410104ff39427bc11e5bc761d66b0"
+		},
+		{
+			"ID": "d979dc90407906152dec7b9a39c72543",
+			"TypeName": "FlaxEngine.PostFxVolume",
+			"ParentID": "89987b7846b8c537c09dd4810c405ca3",
+			"Name": "PostFxVolume",
+			"IsBounded": false,
+			"Settings": {
+				"AO": {},
+				"Bloom": {},
+				"ToneMapping": {},
+				"ColorGrading": {},
+				"EyeAdaptation": {},
+				"CameraArtifacts": {},
+				"LensFlares": {},
+				"DepthOfField": {},
+				"MotionBlur": {
+					"OverrideFlags": 1,
+					"Enabled": false
+				},
+				"SSR": {},
+				"AA": {
+					"OverrideFlags": 1
+				},
+				"PostFxMaterials": {}
+			}
+		},
+		{
+			"ID": "05512e0d45df223c366111aa7b5f80d4",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "3d00f1f34198e5b356a93daad148a3e6",
+			"Name": "Level"
+		},
+		{
+			"ID": "bd8fa15f4e0da94932d5649af970c38c",
+			"TypeName": "FlaxEngine.Terrain",
+			"ParentID": "05512e0d45df223c366111aa7b5f80d4",
+			"Name": "Terrain",
+			"Transform": {
+				"Translation": {
+					"X": -7000.0,
+					"Y": 0.0,
+					"Z": -7000.0
+				}
+			},
+			"LODCount": 6,
+			"ChunkSize": 31,
+			"Patches": [
+				{
+					"X": 0,
+					"Z": 0,
+					"Offset": -70.41063690185547,
+					"Height": 135.13058471679688,
+					"Heightmap": "1222baad4008b70f462f9087869e2083",
+					"Splatmap0": "00000000000000000000000000000000",
+					"Splatmap1": "00000000000000000000000000000000",
+					"Heightfield": "ed7a2e194d8135a855c60e87f12b12ca",
+					"Chunks": [
+						{
+							"Offset": 0.0,
+							"Height": 1.0,
+							"Material": "00000000000000000000000000000000",
+							"LightmapIndex": 0,
+							"LightmapArea": {
+								"Location": {
+									"X": 0.0029296875,
+									"Y": 0.6455078125
+								},
+								"Size": {
+									"X": 0.076171875,
+									"Y": 0.076171875
+								}
+							}
+						},
+						{
+							"Offset": 0.0,
+							"Height": 1.0,
+							"Material": "00000000000000000000000000000000",
+							"LightmapIndex": 0,
+							"LightmapArea": {
+								"Location": {
+									"X": 0.0029296875,
+									"Y": 0.724609375
+								},
+								"Size": {
+									"X": 0.076171875,
+									"Y": 0.076171875
+								}
+							}
+						},
+						{
+							"Offset": 0.0,
+							"Height": 1.0,
+							"Material": "00000000000000000000000000000000",
+							"LightmapIndex": 0,
+							"LightmapArea": {
+								"Location": {
+									"X": 0.0029296875,
+									"Y": 0.8037109375
+								},
+								"Size": {
+									"X": 0.076171875,
+									"Y": 0.076171875
+								}
+							}
+						},
+						{
+							"Offset": 0.0,
+							"Height": 1.0,
+							"Material": "00000000000000000000000000000000",
+							"LightmapIndex": 0,
+							"LightmapArea": {
+								"Location": {
+									"X": 0.0029296875,
+									"Y": 0.8828125
+								},
+								"Size": {
+									"X": 0.076171875,
+									"Y": 0.076171875
+								}
+							}
+						},
+						{
+							"Offset": 0.0,
+							"Height": 1.0,
+							"Material": "00000000000000000000000000000000",
+							"LightmapIndex": 0,
+							"LightmapArea": {
+								"Location": {
+									"X": 0.08203125,
+									"Y": 0.6455078125
+								},
+								"Size": {
+									"X": 0.076171875,
+									"Y": 0.076171875
+								}
+							}
+						},
+						{
+							"Offset": -18.38117218017578,
+							"Height": 24.917945861816408,
+							"Material": "00000000000000000000000000000000",
+							"LightmapIndex": 0,
+							"LightmapArea": {
+								"Location": {
+									"X": 0.1611328125,
+									"Y": 0.8095703125
+								},
+								"Size": {
+									"X": 0.05078125,
+									"Y": 0.05078125
+								}
+							}
+						},
+						{
+							"Offset": -50.47223663330078,
+							"Height": 102.32510375976563,
+							"Material": "00000000000000000000000000000000",
+							"LightmapIndex": 0,
+							"LightmapArea": {
+								"Location": {
+									"X": 0.1611328125,
+									"Y": 0.6455078125
+								},
+								"Size": {
+									"X": 0.0517578125,
+									"Y": 0.0517578125
+								}
+							}
+						},
+						{
+							"Offset": -0.4316134452819824,
+							"Height": 8.087945938110352,
+							"Material": "00000000000000000000000000000000",
+							"LightmapIndex": 0,
+							"LightmapArea": {
+								"Location": {
+									"X": 0.1611328125,
+									"Y": 0.86328125
+								},
+								"Size": {
+									"X": 0.05078125,
+									"Y": 0.05078125
+								}
+							}
+						},
+						{
+							"Offset": 0.0,
+							"Height": 1.0,
+							"Material": "00000000000000000000000000000000",
+							"LightmapIndex": 0,
+							"LightmapArea": {
+								"Location": {
+									"X": 0.08203125,
+									"Y": 0.8828125
+								},
+								"Size": {
+									"X": 0.076171875,
+									"Y": 0.076171875
+								}
+							}
+						},
+						{
+							"Offset": -44.76478958129883,
+							"Height": 78.72518920898438,
+							"Material": "00000000000000000000000000000000",
+							"LightmapIndex": 0,
+							"LightmapArea": {
+								"Location": {
+									"X": 0.1611328125,
+									"Y": 0.7548828125
+								},
+								"Size": {
+									"X": 0.0517578125,
+									"Y": 0.0517578125
+								}
+							}
+						},
+						{
+							"Offset": -70.4106216430664,
+							"Height": 135.1305694580078,
+							"Material": "00000000000000000000000000000000",
+							"LightmapIndex": 0,
+							"LightmapArea": {
+								"Location": {
+									"X": 0.1611328125,
+									"Y": 0.7001953125
+								},
+								"Size": {
+									"X": 0.0517578125,
+									"Y": 0.0517578125
+								}
+							}
+						},
+						{
+							"Offset": -3.997443914413452,
+							"Height": 10.616332054138184,
+							"Material": "00000000000000000000000000000000",
+							"LightmapIndex": 0,
+							"LightmapArea": {
+								"Location": {
+									"X": 0.2158203125,
+									"Y": 0.69921875
+								},
+								"Size": {
+									"X": 0.05078125,
+									"Y": 0.05078125
+								}
+							}
+						},
+						{
+							"Offset": 0.0,
+							"Height": 1.0,
+							"Material": "00000000000000000000000000000000",
+							"LightmapIndex": 0,
+							"LightmapArea": {
+								"Location": {
+									"X": 0.08203125,
+									"Y": 0.8037109375
+								},
+								"Size": {
+									"X": 0.076171875,
+									"Y": 0.076171875
+								}
+							}
+						},
+						{
+							"Offset": -1.09800124168396,
+							"Height": 3.128164529800415,
+							"Material": "00000000000000000000000000000000",
+							"LightmapIndex": 0,
+							"LightmapArea": {
+								"Location": {
+									"X": 0.1611328125,
+									"Y": 0.9169921875
+								},
+								"Size": {
+									"X": 0.05078125,
+									"Y": 0.05078125
+								}
+							}
+						},
+						{
+							"Offset": -7.975120544433594,
+							"Height": 13.120737075805664,
+							"Material": "00000000000000000000000000000000",
+							"LightmapIndex": 0,
+							"LightmapArea": {
+								"Location": {
+									"X": 0.2158203125,
+									"Y": 0.6455078125
+								},
+								"Size": {
+									"X": 0.05078125,
+									"Y": 0.05078125
+								}
+							}
+						},
+						{
+							"Offset": 0.0,
+							"Height": 1.0,
+							"Material": "00000000000000000000000000000000",
+							"LightmapIndex": 0,
+							"LightmapArea": {
+								"Location": {
+									"X": 0.08203125,
+									"Y": 0.724609375
+								},
+								"Size": {
+									"X": 0.076171875,
+									"Y": 0.076171875
+								}
+							}
+						}
+					]
+				}
+			]
+		},
+		{
+			"ID": "ac995a8d4d4ce3f701ffda84a74a0be0",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "05512e0d45df223c366111aa7b5f80d4",
+			"Name": "CSG"
+		},
+		{
+			"ID": "33ce687a45cd79c3ee8ebab12da08f1f",
+			"TypeName": "FlaxEngine.BoxBrush",
+			"ParentID": "ac995a8d4d4ce3f701ffda84a74a0be0",
+			"Name": "BoxBrush",
+			"Transform": {
+				"Translation": {
+					"X": -1500.0,
+					"Y": 0.0,
+					"Z": 0.0
+				}
+			},
+			"Size": {
+				"X": 100.0,
+				"Y": 1500.0,
+				"Z": 3000.0
+			},
+			"Surfaces": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"ID": "e0d4b4ee40a86fb38a5d9dbd7d34834f",
+			"TypeName": "FlaxEngine.BoxBrush",
+			"ParentID": "ac995a8d4d4ce3f701ffda84a74a0be0",
+			"Name": "BoxBrush 0",
+			"Transform": {
+				"Translation": {
+					"X": 1500.0,
+					"Y": 0.0,
+					"Z": 0.0
+				}
+			},
+			"Size": {
+				"X": 100.0,
+				"Y": 1500.0,
+				"Z": 3000.0
+			},
+			"Surfaces": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"ID": "62d0bd4749bac24657fc06942982ad64",
+			"TypeName": "FlaxEngine.BoxBrush",
+			"ParentID": "ac995a8d4d4ce3f701ffda84a74a0be0",
+			"Name": "BoxBrush 1",
+			"Transform": {
+				"Translation": {
+					"X": 0.000274658203125,
+					"Y": 0.0,
+					"Z": 1499.999755859375
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 0.7071068286895752,
+					"Z": 0.0,
+					"W": 0.7071068286895752
+				}
+			},
+			"Size": {
+				"X": 100.0,
+				"Y": 1500.0,
+				"Z": 3000.0
+			},
+			"Surfaces": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"ID": "c7f4550f4fe94b0b0c63b3886d68119b",
+			"TypeName": "FlaxEngine.BoxBrush",
+			"ParentID": "ac995a8d4d4ce3f701ffda84a74a0be0",
+			"Name": "BoxBrush 2",
+			"Transform": {
+				"Translation": {
+					"X": -0.000274658203125,
+					"Y": 160.0,
+					"Z": -1499.999755859375
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 0.7071068286895752,
+					"Z": 0.0,
+					"W": 0.7071068286895752
+				}
+			},
+			"Size": {
+				"X": 100.0,
+				"Y": 1500.0,
+				"Z": 3000.0
+			},
+			"Surfaces": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"ID": "96d5be21472dfce32daa6f886ac4ee31",
+			"TypeName": "FlaxEngine.BoxBrush",
+			"ParentID": "ac995a8d4d4ce3f701ffda84a74a0be0",
+			"Name": "BoxBrush",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": -60.0,
+					"Z": 0.0
+				}
+			},
+			"Size": {
+				"X": 400.0,
+				"Y": 300.0,
+				"Z": 400.0
+			},
+			"Surfaces": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"ID": "7e294c6247079e3a0e6461a63d7cc299",
+			"TypeName": "FlaxEngine.BoxBrush",
+			"ParentID": "ac995a8d4d4ce3f701ffda84a74a0be0",
+			"Name": "BoxBrush 3",
+			"Transform": {
+				"Translation": {
+					"X": 780.0,
+					"Y": 20.0,
+					"Z": 0.0
+				}
+			},
+			"Size": {
+				"X": 400.0,
+				"Y": 300.0,
+				"Z": 400.0
+			},
+			"Surfaces": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"ID": "4c19da99404a89a147236db33d2c99f5",
+			"TypeName": "FlaxEngine.BoxBrush",
+			"ParentID": "ac995a8d4d4ce3f701ffda84a74a0be0",
+			"Name": "BoxBrush 4",
+			"Transform": {
+				"Translation": {
+					"X": -730.0,
+					"Y": -40.0,
+					"Z": 0.0
+				}
+			},
+			"Size": {
+				"X": 400.0,
+				"Y": 300.0,
+				"Z": 400.0
+			},
+			"Surfaces": [
+				{},
+				{},
+				{},
+				{},
+				{},
+				{}
+			]
+		},
+		{
+			"ID": "624e293d43eb04063c7e75b20b8c05cd",
+			"TypeName": "FlaxEngine.CharacterController",
+			"ParentID": "3d00f1f34198e5b356a93daad148a3e6",
+			"Name": "TopDownCharacter",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 250.0,
+					"Z": 0.0
+				}
+			},
+			"Layer": 1,
+			"Radius": 40.0,
+			"Height": 100.0
+		},
+		{
+			"ID": "f812e6dc4739f17ae0ca61aeb08931bc",
+			"TypeName": "Game.CharacterControllerPro",
+			"ParentID": "624e293d43eb04063c7e75b20b8c05cd",
+			"V": {
+	"Acceleration": 15.0,
+	"Deceleration": 20.0,
+	"AirControl": 0.3,
+	"MaxJumpHoldTime": 0.1
+}
+		},
+		{
+			"ID": "523b70b3437d0e2bdd4f7dbc583ad692",
+			"TypeName": "Game.PlayerInput",
+			"ParentID": "624e293d43eb04063c7e75b20b8c05cd",
+			"V": {}
+		},
+		{
+			"ID": "0eadc3684b90a448220887b35e59a7cb",
+			"TypeName": "FlaxEngine.EmptyActor",
+			"ParentID": "624e293d43eb04063c7e75b20b8c05cd",
+			"Name": "Visuals",
+			"Layer": 1
+		},
+		{
+			"ID": "3e767ab545355fc8c50528a21e9d4743",
+			"TypeName": "FlaxEngine.AnimatedModel",
+			"ParentID": "0eadc3684b90a448220887b35e59a7cb",
+			"Name": "Robot",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": -90.0,
+					"Z": 0.0
+				}
+			},
+			"Layer": 1,
+			"SkinnedModel": "8326c7ed4dc0cf4ea7819994d10bce33",
+			"AnimationGraph": "371078754663807bd2ee5fb0714b742e",
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					},
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "e94c5768461eeddd6a86299a633c4ecd",
+			"TypeName": "Game.AnimationController",
+			"ParentID": "3e767ab545355fc8c50528a21e9d4743",
+			"V": {}
+		},
+		{
+			"ID": "dcc724344accbc5bdc5841a596ee4f26",
+			"TypeName": "Game.FootIK",
+			"ParentID": "3e767ab545355fc8c50528a21e9d4743",
+			"V": {
+	"leftFootIK": "3708c454415b1c9ded0cb6be9038e984",
+	"rightFootIK": "1a2fe7fc493f81314b05c1ac9842587f",
+	"collisionMask": {
+		"Mask": 5
+	}
+}
+		},
+		{
+			"ID": "3708c454415b1c9ded0cb6be9038e984",
+			"TypeName": "FlaxEngine.BoneSocket",
+			"ParentID": "3e767ab545355fc8c50528a21e9d4743",
+			"Name": "LeftFootIK",
+			"Transform": {
+				"Translation": {
+					"X": -9.124457359313965,
+					"Y": 10.372257232666016,
+					"Z": -2.383004903793335
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 1.0,
+					"Z": 0.0,
+					"W": -8.742281210061265e-8
+				}
+			},
+			"Node": "LeftFoot"
+		},
+		{
+			"ID": "1a2fe7fc493f81314b05c1ac9842587f",
+			"TypeName": "FlaxEngine.BoneSocket",
+			"ParentID": "3e767ab545355fc8c50528a21e9d4743",
+			"Name": "RightFootIK",
+			"Transform": {
+				"Translation": {
+					"X": 9.124458312988282,
+					"Y": 10.372364044189454,
+					"Z": -2.383084774017334
+				},
+				"Orientation": {
+					"X": 0.0,
+					"Y": 1.0,
+					"Z": 0.0,
+					"W": -8.742281210061265e-8
+				}
+			},
+			"Node": "RightFoot"
+		},
+		{
+			"ID": "6b37116d415d079e2400029f7203b4b9",
+			"TypeName": "FlaxEngine.Camera",
+			"ParentID": "624e293d43eb04063c7e75b20b8c05cd",
+			"Name": "Camera",
+			"Transform": {
+				"Translation": {
+					"X": 0.0,
+					"Y": 440.50250244140627,
+					"Z": -450.5025329589844
+				},
+				"Orientation": {
+					"X": 0.3826834559440613,
+					"Y": 0.0,
+					"Z": 0.0,
+					"W": 0.9238796234130859
+				}
+			},
+			"Layer": 1
+		},
+		{
+			"ID": "0ca1152c4ac84d687a3b1f9d8f9ccfc9",
+			"TypeName": "FlaxEngine.UICanvas",
+			"ParentID": "3d00f1f34198e5b356a93daad148a3e6",
+			"Name": "UICanvas",
+			"Transform": {
+				"Orientation": {
+					"X": 1.0,
+					"Y": 4.371138828673793e-8,
+					"Z": 4.371138828673793e-8,
+					"W": 1.910685465164705e-15
+				}
+			},
+			"V": {}
+		},
+		{
+			"ID": "ecd5e9be4eca1b578ef05bb5ebec0aed",
+			"TypeName": "FlaxEngine.UIControl",
+			"ParentID": "0ca1152c4ac84d687a3b1f9d8f9ccfc9",
+			"Name": "Label",
+			"Transform": {
+				"Translation": {
+					"X": 991.0,
+					"Y": 555.0,
+					"Z": 0.0
+				}
+			},
+			"Control": "FlaxEngine.GUI.Label",
+			"Data": {
+	"Text": "Press ESC to return to menu.",
+	"TextColor": {
+		"R": 1.0,
+		"G": 1.0,
+		"B": 1.0,
+		"A": 1.0
+	},
+	"TextColorHighlighted": {
+		"R": 1.0,
+		"G": 1.0,
+		"B": 1.0,
+		"A": 1.0
+	},
+	"HorizontalAlignment": 2,
+	"VerticalAlignment": 1,
+	"Wrapping": 0,
+	"Font": {
+		"Font": "4508d98f4aa1f0bd59362b81d47e38f4",
+		"Size": 9
+	},
+	"Material": null,
+	"Margin": {
+		"Left": 0.0,
+		"Right": 0.0,
+		"Top": 0.0,
+		"Bottom": 0.0
+	},
+	"ClipText": false,
+	"AutoWidth": false,
+	"AutoHeight": false,
+	"AutoFitText": false,
+	"AutoFitTextRange": {
+		"X": 0.1,
+		"Y": 100.0
+	},
+	"ClipChildren": true,
+	"CullChildren": true,
+	"AnchorMin": {
+		"X": 1.0,
+		"Y": 1.0
+	},
+	"AnchorMax": {
+		"X": 1.0,
+		"Y": 1.0
+	},
+	"Offsets": {
+		"Left": -100.0,
+		"Right": 100.0,
+		"Top": -20.0,
+		"Bottom": 20.0
+	},
+	"Scale": {
+		"X": 1.0,
+		"Y": 1.0
+	},
+	"Pivot": {
+		"X": 1.0,
+		"Y": 1.0
+	},
+	"Shear": {
+		"X": 0.0,
+		"Y": 0.0
+	},
+	"Rotation": 0.0,
+	"BackgroundColor": {
+		"R": 0.0,
+		"G": 0.0,
+		"B": 0.0,
+		"A": 0.0
+	},
+	"Enabled": true,
+	"Visible": true,
+	"AutoFocus": false
+}
+		},
+		{
+			"ID": "afed6e1a4a8091ceca0dd1b102022ece",
+			"TypeName": "Game.SceneSwitcher",
+			"ParentID": "ecd5e9be4eca1b578ef05bb5ebec0aed",
+			"V": {
+	"nextScene": "997ad4f34f999170871df9b517f1b5ae",
+	"key": 27
+}
+		},
+		{
+			"ID": "0d642b7b45d393a08a9a7194bb88fa9a",
+			"TypeName": "FlaxEngine.StaticModel",
+			"ParentID": "3d00f1f34198e5b356a93daad148a3e6",
+			"Name": "CSG.Model",
+			"HideFlags": 4,
+			"Model": "357532b346aeb1dd02c5688c530bd636",
+			"LightmapIndex": 0,
+			"LightmapArea": {
+				"Location": {
+					"X": 0.0029296875,
+					"Y": 0.0029296875
+				},
+				"Size": {
+					"X": 0.6396484375,
+					"Y": 0.6396484375
+				}
+			},
+			"Buffer": {
+				"Entries": [
+					{
+						"Material": "00000000000000000000000000000000",
+						"ShadowsMode": 3,
+						"Visible": true,
+						"ReceiveDecals": true
+					}
+				]
+			}
+		},
+		{
+			"ID": "49ea4758441fa7ef20e6c8a2b72caaf2",
+			"TypeName": "FlaxEngine.MeshCollider",
+			"ParentID": "3d00f1f34198e5b356a93daad148a3e6",
+			"Name": "CSG.Collider",
+			"HideFlags": 4,
+			"CollisionData": "6da717c44718a14faf8eadb816cec64d"
+		}
+	]
+}
