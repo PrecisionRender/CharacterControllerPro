@@ -31,6 +31,6 @@ The project includes PDF documentation on how CharacterControllerPro works and h
 ## How to install
 1. Download the repository ZIP file
 2. Extract the ZIP file
-3. Open the project folder
+3. Open the repository folder
 4. Open the CharacterControllerProCS folder for the C# code or the CharacterControllerProCPP folder for the C++ code
 5. Drag and drop the scripts into your Flax Engine project
