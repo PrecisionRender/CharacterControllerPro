@@ -1,0 +1,58 @@
+{
+	"ID": "33c382bb4e77f4ddd4df2c8185e01dd9",
+	"TypeName": "FlaxEngine.Prefab",
+	"EngineBuild": 6228,
+	"Data": [
+	{
+		"ID": "89b01ebb41ac0b8f13a787a28a513072",
+		"TypeName": "FlaxEngine.SphereCollider",
+		"Name": "Launchpad",
+		"Transform": {
+			"Translation": {
+				"X": 46.702484130859378,
+				"Y": 49.4461555480957,
+				"Z": 22.0408935546875
+			}
+		},
+		"IsTrigger": true,
+		"Radius": 70.0
+	},
+	{
+		"ID": "331bd6d54c9bbe397380b4a4a3a60c0f",
+		"TypeName": "Game.Launchpad",
+		"ParentID": "89b01ebb41ac0b8f13a787a28a513072",
+		"V": {}
+	},
+	{
+		"ID": "804790904b56bfe4dafce992979a9735",
+		"TypeName": "FlaxEngine.StaticModel",
+		"ParentID": "89b01ebb41ac0b8f13a787a28a513072",
+		"Name": "Model",
+		"Model": "3863c6cf40209154a1b37483aecc6394",
+		"Buffer": {
+			"Entries": [
+				{
+					"Material": "f8f5ac08479ad022ea2abeb9ef00ec75",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				},
+				{
+					"Material": "0e028931429816ba25719e9b357bc549",
+					"ShadowsMode": 3,
+					"Visible": true,
+					"ReceiveDecals": true
+				}
+			]
+		}
+	},
+	{
+		"ID": "2c7c3726493e2d7da41cd0811163493e",
+		"TypeName": "FlaxEngine.ParticleEffect",
+		"ParentID": "89b01ebb41ac0b8f13a787a28a513072",
+		"Name": "FX",
+		"Overrides": [],
+		"ParticleSystem": "191b850043bb6c6b320455b115c5a4ed"
+	}
+]
+}
