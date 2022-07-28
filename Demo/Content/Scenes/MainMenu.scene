@@ -161,7 +161,7 @@
 			"Transform": {
 				"Translation": {
 					"X": 495.5,
-					"Y": 52.5,
+					"Y": 65.0,
 					"Z": 0.0
 				}
 			},
@@ -206,16 +206,16 @@
 	"CullChildren": true,
 	"AnchorMin": {
 		"X": 0.5,
-		"Y": 0.5
+		"Y": 0.0
 	},
 	"AnchorMax": {
 		"X": 0.5,
-		"Y": 0.5
+		"Y": 0.0
 	},
 	"Offsets": {
 		"Left": -50.0,
 		"Right": 100.0,
-		"Top": -235.0,
+		"Top": 65.0,
 		"Bottom": 20.0
 	},
 	"Scale": {
@@ -224,7 +224,7 @@
 	},
 	"Pivot": {
 		"X": 0.5,
-		"Y": 0.5
+		"Y": 0.0
 	},
 	"Shear": {
 		"X": 0.0,
