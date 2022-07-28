@@ -35,7 +35,7 @@ namespace Game
 
         public override void OnFixedUpdate()
         {
-            if (Physics.RayCast(new Vector3(leftFootIK.Position.X, Actor.Position.Y + 10, leftFootIK.Position.Z), Vector3.Down, out RayCastHit leftFootHit, 50, collisionMask))
+            if (Physics.RayCast(new Vector3(leftFootIK.Position.X, Actor.Position.Y + 30, leftFootIK.Position.Z), Vector3.Down, out RayCastHit leftFootHit, 80, collisionMask))
             {
                 // Get a forward-facing direction relative to the ground noraml
                 Vector3 aimDirection = Vector3.Cross(leftFootHit.Normal, Transform.Right);
@@ -56,7 +56,7 @@ namespace Game
                 _leftFootIK.Value = 0;
             }
 
-            if (Physics.RayCast(new Vector3(rightFootIK.Position.X, Actor.Position.Y + 10, rightFootIK.Position.Z), Vector3.Down, out RayCastHit rightFootHit, 50, collisionMask))
+            if (Physics.RayCast(new Vector3(rightFootIK.Position.X, Actor.Position.Y + 30, rightFootIK.Position.Z), Vector3.Down, out RayCastHit rightFootHit, 80, collisionMask))
             {
                 // Get a forward-facing direction relative to the ground noraml
                 Vector3 aimDirection = Vector3.Cross(rightFootHit.Normal, Transform.Right);
