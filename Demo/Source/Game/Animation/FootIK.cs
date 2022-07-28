@@ -35,14 +35,14 @@ namespace Game
 
         public override void OnFixedUpdate()
         {
-            if (Physics.RayCast(new Vector3(leftFootIK.Position.X, Actor.Position.Y + 30, leftFootIK.Position.Z), Vector3.Down, out RayCastHit leftFootHit, 80, collisionMask))
+            if (Physics.RayCast(new Vector3(leftFootIK.Position.X, Actor.Position.Y + 10, leftFootIK.Position.Z), Vector3.Down, out RayCastHit leftFootHit, 60, collisionMask))
             {
                 // Get a forward-facing direction relative to the ground noraml
                 Vector3 aimDirection = Vector3.Cross(leftFootHit.Normal, Transform.Right);
                 // Create a rotation from the direction
                 Quaternion footRot = Quaternion.LookRotation(aimDirection, leftFootHit.Normal);
 
-                currentLeftIK = Mathf.Lerp(currentLeftIK, leftFootHit.Point.Y - Actor.Position.Y, Time.DeltaTime * 20);
+                currentLeftIK = Mathf.Lerp(currentLeftIK, leftFootHit.Point.Y - Actor.Position.Y, Time.DeltaTime * 15);
 
                 _leftFootRot.Value = Quaternion.Euler(footRot.EulerAngles.X, 0, footRot.EulerAngles.Z);
                 _leftFootIK.Value = currentLeftIK;
@@ -56,14 +56,14 @@ namespace Game
                 _leftFootIK.Value = 0;
             }
 
-            if (Physics.RayCast(new Vector3(rightFootIK.Position.X, Actor.Position.Y + 30, rightFootIK.Position.Z), Vector3.Down, out RayCastHit rightFootHit, 80, collisionMask))
+            if (Physics.RayCast(new Vector3(rightFootIK.Position.X, Actor.Position.Y + 10, rightFootIK.Position.Z), Vector3.Down, out RayCastHit rightFootHit, 60, collisionMask))
             {
                 // Get a forward-facing direction relative to the ground noraml
                 Vector3 aimDirection = Vector3.Cross(rightFootHit.Normal, Transform.Right);
                 // Create a rotation from the direction
                 Quaternion footRot = Quaternion.LookRotation(aimDirection, rightFootHit.Normal);
 
-                currentRightIK = Mathf.Lerp(currentRightIK, rightFootHit.Point.Y - Actor.Position.Y, Time.DeltaTime * 20);
+                currentRightIK = Mathf.Lerp(currentRightIK, rightFootHit.Point.Y - Actor.Position.Y, Time.DeltaTime * 15);
 
                 _rightFootRot.Value = Quaternion.Euler(footRot.EulerAngles.X, 0, footRot.EulerAngles.Z);
                 _rightFootIK.Value = currentRightIK;
