@@ -13,7 +13,7 @@ https://user-images.githubusercontent.com/89754713/181567216-a6ee960e-2311-4b95-
 ### Fully-Featured Movement
 CharacterControllerPro has a complete suite of built-in movement functionality, including acceleration, friction, gravity, air control, multi-height jumps, and more!
 
-### Works With Any Charcater Mesh
+### Works With Any Character Mesh
 The movement code is completely abstracted from the character visuals, allowing for any humanoid character model you have!
 
 ### Built-In Camera Controller
@@ -26,7 +26,7 @@ Most of the movement and camera settings can be tweaked straight from the Proper
 CharacterControllerPro includes a demo project, with third-person, first-person, top-down, and side-scroller examples. It also shows how to implement an animated model with animations and foot IK using CharacterContorllerPro
 
 ### Documentation and API Reference
-The project includes PDF documentation on how CharacterControllerPro works and how to use it. It also includes a complete API reference for learning aboout what all the variables and functions are for.
+The project includes PDF documentation on how CharacterControllerPro works and how to use it. It also includes a complete API reference for learning about what all the variables and functions are for.
 
 ## How to install
 1. Download the repository ZIP file
